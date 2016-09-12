@@ -9,12 +9,19 @@ Node.js is required to build this project
 brew install node
 ```
 
-## Building
+## Setup
 
 ```sh
 # Navigate to this folder
 cd ~/path/to/repo
 
-# Build
+# Install deps
+npm install
+```
+
+
+### Build
+
+```sh
 gulp build
 ```
