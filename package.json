@@ -5,26 +5,32 @@
   "license": "MIT",
   "scripts": {
     "build-client": "webpack --config tools/webpack.config.client.js",
+    "build-prod": "NODE_ENV=production npm-run-all build gzip-size",
     "build-server": "webpack --config tools/webpack.config.server.js",
     "build": "npm-run-all clean copy build-client build-server",
-    "build-prod": "NODE_ENV=production npm-run-all build gzip-size",
     "clean": "rm -rf ./build && mkdir -p build/views build/public",
-    "copy-watch-views": "cpx ./src/server/views/**/*.* ./build/views/ --watch",
-    "copy-watch-public": "cpx \"./src/public/**/*.*\" ./build/public/ --watch",
-    "copy-watch": "npm-run-all --parallel copy-watch-views copy-watch-public",
-    "copy-views": "cp -r ./src/server/views ./build/",
     "copy-public": "cp -r ./src/public ./build/",
+    "copy-views": "cp -r ./src/server/views ./build/",
+    "copy-watch-public": "cpx \"./src/public/**/*.*\" ./build/public/ --watch",
+    "copy-watch-views": "cpx ./src/server/views/**/*.* ./build/views/ --watch",
+    "copy-watch": "npm-run-all --parallel copy-watch-views copy-watch-public",
     "copy": "npm-run-all copy-views copy-public",
+    "deploy": "npm-run-all pm2-delete pm2-start",
     "dev-server": "nodemon build/server.bundle.js",
-    "gzip-size": "node tools/scripts/gzip-size",
     "generate-pages": "DEBUG=react-app:* node tools/scripts/generate-pages",
-    "server": "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
-    "watch-client": "webpack-dev-server --config tools/webpack.config.client.js",
-    "watch-server": "webpack --watch --config tools/webpack.config.server.js",
-    "watch": "npm-run-all clean build-client --parallel copy-watch watch-client watch-server",
+    "gzip-size": "node tools/scripts/gzip-size",
     "pm2-delete": "pm2 delete react-app",
-    "pm2-start": "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
-    "deploy": "npm-run-all pm2-delete pm2-start"
+    "pm2-start":
+      "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
+    "postinstall": "npm-run-all build-prod",
+    "server":
+      "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
+    "start": "node build/server.bundle.js",
+    "watch-client":
+      "webpack-dev-server --config tools/webpack.config.client.js",
+    "watch-server": "webpack --watch --config tools/webpack.config.server.js",
+    "watch":
+      "npm-run-all clean build-client --parallel copy-watch watch-client watch-server"
   },
   "private": true,
   "dependencies": {
