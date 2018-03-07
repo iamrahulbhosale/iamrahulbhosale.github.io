@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "renderer/*": ["./renderer/*"],
+      "config/*": ["./config/*"],
+      "helpers/*": ["./helpers/*"],
+      "routes/*": ["./routes/*"],
+      "views/*": ["./views/*"]
+    }
+  }
+}

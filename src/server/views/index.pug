@@ -1,0 +1,46 @@
+extends layout
+
+block preload
+  if is_prod
+    link(rel='preload' as='style'  href= webpack_assets['main.css'])
+    link(rel='preload' as='script' href= webpack_assets['vendors.js'])
+    link(rel='preload' as='script' href= webpack_assets['main.js'])
+
+block head_styles
+  style(id='server-css' type='text/css' rel='stylesheet') __inject_critical_css__
+
+  if is_prod
+    link(rel='stylesheet' type='text/css' href= webpack_assets['main.css'])
+
+block head_scripts
+  script(type='text/javascript').
+    window.INIT_CONFIG= !{JSON.stringify(init_config)}
+
+block content
+  section#root __inject_html__
+
+  if is_prod
+    script(defer type='text/javascript' src= webpack_assets['vendors.js'])
+
+  script(defer type='text/javascript' src= webpack_assets['main.js'])
+
+  script(type='text/javascript').
+    (function beforeSetup(window, document){
+      if (INIT_CONFIG._SERVER_REDIRECT_) {
+        window.location.replace(INIT_CONFIG._SERVER_REDIRECT_)
+      }
+
+      var css = [
+        'https://fonts.googleapis.com/icon?family=Material+Icons',
+        'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'
+      ]
+
+      css.filter(x => !!x).forEach(function(href){
+        var link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.type = 'text/css'
+        link.href = href
+        document.head.appendChild(link)
+      })
+
+    })(window, document)

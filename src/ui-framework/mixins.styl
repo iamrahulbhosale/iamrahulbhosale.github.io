@@ -1,0 +1,30 @@
+placeholder()
+  &::-webkit-input-placeholder
+    {block}
+
+  &:-moz-placeholder
+    {block}
+
+  &::-moz-placeholder
+    {block}
+
+  &:-ms-input-placeholder
+    {block}
+
+/*
+ * Dimensions
+ */
+square(size, radius)
+  width size
+  height size
+
+  if radius is defined
+    border-radius radius
+
+
+absolute-layer(_top = 0, _right = 0, _bottom = 0, _left = 0)
+  position absolute
+  top _top
+  right _right
+  bottom _bottom
+  left _left
