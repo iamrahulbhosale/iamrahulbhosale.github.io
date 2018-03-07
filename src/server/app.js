@@ -18,7 +18,9 @@ const runServer = app => {
 
   serverInstance = app.listen(port, function onListentingCB() {
     debug(`Node server on http://127.0.0.1:${port}`)
-    if (__DEV__) debug(`Hot  server on http://127.0.0.1:${Config.PROXY_PORT}`)
+    if (__DEV__) {
+      debug(`Hot  server on http://127.0.0.1:${Config.PROXY_PORT}`)
+    }
   })
 }
 

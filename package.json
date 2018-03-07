@@ -22,10 +22,10 @@
     "pm2-delete": "pm2 delete react-app",
     "pm2-start":
       "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
-    "postinstall": "npm-run-all build-prod",
+    "postinstall": "npm run build-prod",
     "server":
       "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
-    "start": "node build/server.bundle.js",
+    "start": "npm run server",
     "watch-client":
       "webpack-dev-server --config tools/webpack.config.client.js",
     "watch-server": "webpack --watch --config tools/webpack.config.server.js",
