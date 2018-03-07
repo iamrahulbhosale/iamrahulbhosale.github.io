@@ -15,7 +15,7 @@ export var Config = {}
 
 export const initConfig = app => {
   // Path is dynamically resolved when this function is called
-  // e.g. '.'  will point to build/server.bundle.js
+  // e.g. '.'  will point to 'build' directory where server.bundle.js is present
   var p = path.resolve('.', './config.js')
   debug(`Loading config from: ${p}`)
   try {
