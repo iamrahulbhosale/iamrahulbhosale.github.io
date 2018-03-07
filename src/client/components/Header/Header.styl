@@ -1,0 +1,33 @@
+// Variables
+$header-height ?= 100px
+$header-height-mobile ?= 60px
+$header-bg ?= $body-bg
+
+
+:local(.container)
+  height $header-height
+  background-color $header-bg
+
+  &.is-fixed
+    position fixed
+    top 0
+    right 0
+    left 0
+    padding 0 $half-gutter
+
+  &.is-transparent
+    background-color transparent
+
+:local(.container)
+  +mobile()
+    height $header-height-mobile
+    border-bottom 1px $border-color solid
+    &.is-fixed
+      padding-right $half-gutter
+      padding-left $half-gutter
+    &:not(.is-fixed)
+      padding-left 0
+      padding-right 0
+
+    .header-links, .ui-logo-text
+      display none

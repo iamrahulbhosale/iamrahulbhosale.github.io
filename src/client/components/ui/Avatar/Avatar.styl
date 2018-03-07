@@ -1,0 +1,29 @@
+$avatar-size = 48px
+$avatar-size-sm = 32px
+$avatar-size-lg = 182px
+
+
+
+
+:local(.container)
+  color inherit
+  square $avatar-size $avatar-size
+  display flex
+  align-items center
+  justify-content center
+  border-radius $avatar-size
+  background-color $light
+  font-weight $font-weight-bold
+  font-size 20px
+  overflow hidden
+  &.is-sm
+    square $avatar-size-sm $avatar-size-sm
+  &.is-lg
+    square $avatar-size-lg $avatar-size-lg
+
+
+  .avatar-img
+    object-fit cover
+    object-position center center
+    overflow hidden
+    max-height 100%
