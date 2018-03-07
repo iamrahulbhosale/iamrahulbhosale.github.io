@@ -93,9 +93,9 @@ config.plugins = [
     __DEV__: envOption(false, true, false),
     __TEST__: envOption(false, false, true),
     __SERVER__: false,
-    'process.env': {
-      NODE_ENV: JSON.stringify(envOption('production', 'development', 'test'))
-    }
+    'process.env.NODE_ENV': JSON.stringify(
+      envOption('production', 'development', 'test')
+    )
   }),
   new ManifestPlugin({
     fileName: 'asset-manifest.json',
