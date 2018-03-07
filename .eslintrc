@@ -1,0 +1,12 @@
+{
+    "extends": "react-app",
+    "rules": {
+      "jsx-a11y/href-no-hash": "off"
+    },
+    "globals": {
+      "__SERVER__": false,
+      "__DEV__": false,
+      "__TEST__": false,
+      "$": true
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "search.exclude": {
+    "node_modules/": true
+  },
+  "files.exclude": {
+    "node_modules/": true,
+    "build/": true,
+    "dist/": true,
+    "package-lock.json": true
+  },
+  "prettier.jsxBracketSameLine": true,
+  "prettier.useTabs": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "prettier.tabWidth": 2,
+  "prettier.eslintIntegration": true,
+  "prettier.printWidth": 80,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.stylelintIntegration": true,
+  "languageStylus.useBuiltinFunctions": true,
+  "languageStylus.useSeparator": true,
+  "npm-intellisense.importES6": true,
+  "eslint.alwaysShowStatus": true,
+  "css.fileExtensions": ["css", "scss", "styl"]
+}

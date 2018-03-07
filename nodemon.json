@@ -1,0 +1,11 @@
+{
+  "script": "build/server.bundle.js",
+  "watch": ["build/server.bundle.js"],
+  "ext": "js",
+  "ignore": ["!build/public", "!build/views", "src/client"],
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "react-app:*"
+  },
+  "nodeArgs": ["-r", "source-map-support/register", "--inspect"]
+}

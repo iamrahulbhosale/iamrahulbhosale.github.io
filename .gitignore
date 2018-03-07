@@ -1,0 +1,28 @@
+
+# Ignore Dependencies
+node_modules/
+
+# Ignore dumps/logs
+*.log
+
+# Ignore sublime text generated files
+kanto-ui-landing.sublime-workspace
+
+# Ignore config
+# You can copy .sample.config.json, rename this and use in environments
+config.json
+
+# Ignore generated files
+build/
+dist/
+docs/
+stats.json
+
+
+pull_changes.sh
+push_changes.sh
+
+NOTES.txt
+build_and_deploy.sh
+
+*.ignore
