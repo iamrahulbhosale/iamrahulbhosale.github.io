@@ -19,6 +19,13 @@ const handleStaticFiles = (req, res, next) => {
   next()
 }
 
+const handleAppShellRequest = (req, res, next) => {
+  if (req.originalUrl.includes('?appshell=1')) {
+    return res.render('index', getTemplateData(req))
+  }
+  return next()
+}
+
 /**
  * [getRouter Returns main router for application]
  * @param  {object} app     [express.js app object]
@@ -34,7 +41,12 @@ export default function getRouter(app) {
   // })
 
   // Server rendering
-  router.get('*', handleStaticFiles, require('../renderer').StreamingRenderer)
+  router.get(
+    '*',
+    handleStaticFiles,
+    handleAppShellRequest,
+    require('../renderer').StreamingRenderer
+  )
 
   return router
 }
