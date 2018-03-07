@@ -4,6 +4,10 @@ import crypto from 'crypto'
 import chalk from 'chalk'
 import Table from 'easy-table'
 
+import Promise from 'bluebird'
+
+Promise.promisifyAll(fs)
+
 // File Response Cache
 export const FILE_RESPONSES_CACHE = {}
 export const CachedFileResponse = filePath => {
@@ -15,7 +19,7 @@ export const CachedFileResponse = filePath => {
   }
 
   // First time the file is requested, we read and store in cache
-  return fs.readFile(filePath).then(text => {
+  return fs.readFileAsync(filePath, 'utf-8').then(text => {
     FILE_RESPONSES_CACHE[key] = text
     console.log(chalk.yellow('Cached File Response: ' + filePath))
     return text
@@ -37,7 +41,7 @@ export const CachedFileResponseMiddleware = (filePath, mimeType) => (
 // Generate MD5 hash
 export const createMD5 = (str = false) => {
   if (!str) return
-  crypto
+  return crypto
     .createHash('md5')
     .update(str)
     .digest('hex')

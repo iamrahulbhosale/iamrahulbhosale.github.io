@@ -13,7 +13,10 @@ import getRouter from './routes/index'
 //eslint-disable-next-line no-unused-vars
 import { printAsTable } from './helpers/common'
 
-import { CachedFileResponseMiddleware } from './helpers/common'
+import {
+  CachedFileResponse,
+  CachedFileResponseMiddleware
+} from './helpers/common'
 
 //eslint-disable-next-line
 import { Config } from './config'
@@ -71,24 +74,25 @@ export function configureServer(app) {
     staticOptions.maxAge = '30 days'
   }
 
-  // Static assets should be served without cookies
-  // and ideally through a cdn
-  app.use(
-    '/public',
-    express.static(path.join(__dirname, 'public'), staticOptions)
-  )
-
   // Serve service worker from root
   app.get(
     '/sw.js',
     CachedFileResponseMiddleware(__dirname + '/public/sw.js', 'text/javascript')
   )
-  app.get(
-    '/workbox-sw.js',
-    CachedFileResponseMiddleware(
-      __dirname + '/public/workbox-sw.js',
-      'text/javascript'
-    )
+  app.get(/\/workbox.+\.js/, (req, res, next) => {
+    const fpath = path.join(__dirname, 'public', req.originalUrl)
+    CachedFileResponse(fpath)
+      .then(data => {
+        res.type('text/javascript').send(data)
+      })
+      .catch(err => next(err))
+  })
+
+  // Static assets should be served without cookies
+  // and ideally through a cdn
+  app.use(
+    '/public',
+    express.static(path.join(__dirname, 'public'), staticOptions)
   )
 
   // Enable cookies after static routes

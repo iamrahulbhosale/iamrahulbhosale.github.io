@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 const Config = require('../config')
 
@@ -133,6 +134,24 @@ if (IS_PROD) {
     new ExtractTextPlugin({
       filename: 'main.[contenthash:8].bundle.css',
       allChunks: true
+    }),
+
+    new WorkboxWebpackPlugin({
+      globDirectory: PATHS.BUILD_PUBLIC,
+      globPatterns: ['**/*.{css,js}'],
+      swDest: path.join(PATHS.BUILD_PUBLIC, 'sw.js'),
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://fonts.googleapis.com'),
+          handler: 'staleWhileRevalidate'
+        },
+        {
+          urlPattern: new RegExp('https://fonts.gstatic.com'),
+          handler: 'staleWhileRevalidate'
+        }
+      ]
     }),
 
     ...config.plugins

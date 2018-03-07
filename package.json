@@ -18,16 +18,12 @@
     "dev-server": "nodemon build/server.bundle.js",
     "gzip-size": "node tools/scripts/gzip-size",
     "generate-pages": "DEBUG=react-app:* node tools/scripts/generate-pages",
-    "server":
-      "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
-    "watch-client":
-      "webpack-dev-server --config tools/webpack.config.client.js",
+    "server": "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
+    "watch-client": "webpack-dev-server --config tools/webpack.config.client.js",
     "watch-server": "webpack --watch --config tools/webpack.config.server.js",
-    "watch":
-      "npm-run-all clean build-client --parallel copy-watch watch-client watch-server",
+    "watch": "npm-run-all clean build-client --parallel copy-watch watch-client watch-server",
     "pm2-delete": "pm2 delete react-app",
-    "pm2-start":
-      "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
+    "pm2-start": "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
     "deploy": "npm-run-all pm2-delete pm2-start"
   },
   "private": true,
@@ -94,6 +90,7 @@
     "webpack": "4.1.0",
     "webpack-cli": "2.0.10",
     "webpack-manifest-plugin": "^2.0.0-rc.2",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-node-externals": "^1.6.0",
+    "workbox-webpack-plugin": "^2.1.3"
   }
 }

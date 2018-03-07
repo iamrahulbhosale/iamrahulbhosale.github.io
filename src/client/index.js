@@ -9,6 +9,7 @@ import { configureStore, saveLocalState, loadLocalState } from './store/index'
 import createHistory from 'history/createBrowserHistory'
 
 import Root from './containers/Root'
+import registerServiceWorker from './register-service-worker'
 
 // Create Initial History Object
 const history = createHistory()
@@ -62,4 +63,8 @@ if (module.hot) {
   module.hot.accept('./containers/Root', () => {
     renderApp(Root)
   })
+}
+
+if (process.env.NODE_ENV === 'production') {
+  registerServiceWorker()
 }
