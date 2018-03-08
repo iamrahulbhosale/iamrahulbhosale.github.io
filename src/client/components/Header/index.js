@@ -36,7 +36,7 @@ class Header extends Component {
     return (
       <header className={cx}>
         <Link className="header-logo" to="/">
-          <Logo />
+          <Logo primaryText="REACT" secondaryText="APP" />
         </Link>
         <div className="flex-1" />
         <Navigation />

@@ -4,6 +4,7 @@ export default function createAsyncComponent(getComponent) {
   if (!typeof getComponent === 'function') {
     throw new Error('`getComponent` is not a function')
   }
+
   return class ProxyComponent extends Component {
     state = {
       isLoading: true,
@@ -20,6 +21,7 @@ export default function createAsyncComponent(getComponent) {
           this.setState({ error: err.message, isLoading: false })
         })
     }
+
     render() {
       if (this.state.isLoading) return <div> loading </div>
       if (this.state.error) return <div> got error </div>

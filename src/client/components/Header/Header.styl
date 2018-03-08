@@ -7,16 +7,17 @@ $header-bg ?= $body-bg
 :local(.container)
   height $header-height
   background-color $header-bg
+  padding 0 $half-gutter
 
   &.is-fixed
     position fixed
     top 0
     right 0
     left 0
-    padding 0 $half-gutter
-
+    
   &.is-transparent
     background-color transparent
+    color #fff
 
 :local(.container)
   +mobile()
@@ -25,9 +26,11 @@ $header-bg ?= $body-bg
     &.is-fixed
       padding-right $half-gutter
       padding-left $half-gutter
-    &:not(.is-fixed)
-      padding-left 0
-      padding-right 0
 
-    .header-links, .ui-logo-text
-      display none
+
+:local(.container)
+  .header-link 
+    margin-left $half-gutter
+    cursor pointer
+    color inherit
+    font-weight $font-weight-bold
