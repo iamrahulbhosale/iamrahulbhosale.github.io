@@ -25,7 +25,8 @@ config.mode = IS_PROD ? 'production' : 'development'
 config.target = 'node'
 
 config.stats = {
-  modules: false
+  modules: false,
+  children: false // hides output from extract-text-plugin
 }
 
 // Devtool

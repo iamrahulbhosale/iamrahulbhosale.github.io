@@ -20,7 +20,7 @@ const handleStaticFiles = (req, res, next) => {
 }
 
 const handleAppShellRequest = (req, res, next) => {
-  if (req.originalUrl.includes('?appshell=1')) {
+  if (req.originalUrl.includes('app-shell.html')) {
     return res.render('index', getTemplateData(req))
   }
   return next()

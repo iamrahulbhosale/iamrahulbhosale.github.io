@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import Logo from 'components/ui/Logo'
+import Navigation from './Navigation'
 
 import s from './Header.styl'
 
@@ -37,6 +38,8 @@ class Header extends Component {
         <Link className="header-logo" to="/">
           <Logo />
         </Link>
+        <div className="flex-1" />
+        <Navigation />
       </header>
     )
   }

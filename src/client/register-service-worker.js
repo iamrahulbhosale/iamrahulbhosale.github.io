@@ -1,3 +1,9 @@
+// checks if current window is controlled by a service worker or not
+// if it's not, then it means service worker will be activated immediately
+function windowIsNotControlled() {
+  return !navigator.serviceWorker.controller
+}
+
 function fetchAndInstallSW() {
   return navigator.serviceWorker
     .register('./sw.js')

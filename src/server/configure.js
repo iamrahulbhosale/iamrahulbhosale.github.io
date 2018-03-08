@@ -11,10 +11,9 @@ import compression from 'compression'
 import getRouter from './routes/index'
 
 //eslint-disable-next-line no-unused-vars
-import { printAsTable } from './helpers/common'
-
 import {
-  CachedFileResponse,
+  printAsTable,
+  handleWorkboxRequests,
   CachedFileResponseMiddleware
 } from './helpers/common'
 
@@ -55,8 +54,7 @@ export function configureServer(app) {
   app.locals.is_prod = process.env.NODE_ENV === 'production'
 
   // Enables pretty printing of pugjs templates in dev mode
-  app.locals.pretty =
-    process.env.DIST_MODE === '1' || process.env.NODE_ENV !== 'production'
+  app.locals.pretty = process.env.NODE_ENV !== 'production'
 
   // Logger
   // 'combined' is standard apache log format
@@ -66,10 +64,9 @@ export function configureServer(app) {
   app.use(bodyParser.urlencoded({ extended: true }))
 
   // Use compression
-  if (process.env.DIST_MODE !== '1') app.use(compression())
+  app.use(compression())
 
   const staticOptions = {}
-
   if (process.env.NODE_ENV === 'production') {
     staticOptions.maxAge = '30 days'
   }
@@ -79,14 +76,9 @@ export function configureServer(app) {
     '/sw.js',
     CachedFileResponseMiddleware(__dirname + '/public/sw.js', 'text/javascript')
   )
-  app.get(/\/workbox.+\.js/, (req, res, next) => {
-    const fpath = path.join(__dirname, 'public', req.originalUrl)
-    CachedFileResponse(fpath)
-      .then(data => {
-        res.type('text/javascript').send(data)
-      })
-      .catch(err => next(err))
-  })
+
+  // Handle dev and prod versions of service workers
+  app.get(/\/workbox.+\.js/, handleWorkboxRequests)
 
   // Static assets should be served without cookies
   // and ideally through a cdn

@@ -34,7 +34,8 @@ config.cache = IS_DEV
 config.target = 'web'
 
 config.stats = {
-  modules: false
+  modules: false,
+  children: false // hides output from extract-text-plugin
 }
 
 // css-loader calculates hash based on path and name only
@@ -139,19 +140,8 @@ if (IS_PROD) {
     new WorkboxWebpackPlugin({
       globDirectory: PATHS.BUILD_PUBLIC,
       globPatterns: ['**/*.{css,js}'],
-      swDest: path.join(PATHS.BUILD_PUBLIC, 'sw.js'),
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern: new RegExp('https://fonts.googleapis.com'),
-          handler: 'staleWhileRevalidate'
-        },
-        {
-          urlPattern: new RegExp('https://fonts.gstatic.com'),
-          handler: 'staleWhileRevalidate'
-        }
-      ]
+      swSrc: path.join(PATHS.SRC_CLIENT, 'sw.js'),
+      swDest: path.join(PATHS.BUILD_PUBLIC, 'sw.js')
     }),
 
     ...config.plugins

@@ -1,10 +1,13 @@
 import _ from 'lodash'
+import path from 'path'
 import fs from 'fs-extra'
 import crypto from 'crypto'
 import chalk from 'chalk'
 import Table from 'easy-table'
 
 import Promise from 'bluebird'
+
+import { Config } from '../config'
 
 Promise.promisifyAll(fs)
 
@@ -55,4 +58,25 @@ export const printAsTable = obj => {
     t.newRow()
   })
   console.log(t.toString())
+}
+
+export const handleWorkboxRequests = (req, res, next) => {
+  const scriptName = req.originalUrl
+  const fileName = Config.SERVICE_WORKER_DEBUG
+    ? scriptName.replace('workbox-sw.', 'workbox-sw.dev.')
+    : scriptName.replace('workbox-sw.', 'workbox-sw.prod.')
+
+  const filePath = path.join(
+    __dirname,
+    '../node_modules/workbox-sw/build/importScripts/',
+    fileName
+  )
+
+  CachedFileResponse(filePath)
+    .then(fileContents => {
+      res.type('text/javascript').send(fileContents)
+    })
+    .catch(err => {
+      next(err)
+    })
 }
