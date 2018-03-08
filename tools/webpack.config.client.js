@@ -161,7 +161,15 @@ if (IS_PROD) {
 config.optimization = {
   runtimeChunk: false,
   splitChunks: {
-    name: true
+    name: true,
+    cacheGroups: {
+      vendors: {
+        name: 'vendors',
+        chunks: 'all',
+        enforce: true,
+        minChunks: 2
+      }
+    }
   }
 }
 
