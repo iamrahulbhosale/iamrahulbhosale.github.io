@@ -1,10 +1,12 @@
-// In watch mode, these are bundled in dll
-// In production mode, these are bundled as 'vendors' commons chunk
-require('react')
-require('react-dom')
+// react related
+import 'react'
+import 'react-dom'
+import 'prop-types'
 
-require('redux')
-require('react-redux')
-require('redux-thunk')
+// redux related
+import 'redux'
+import 'react-redux'
+import 'redux-thunk'
 
-require('classnames')
+// other commonly used
+import 'classnames'
