@@ -22,7 +22,8 @@ $header-bg ?= $body-bg
 :local(.container)
   +mobile()
     height $header-height-mobile
-    border-bottom 1px $border-color solid
+    &:not(.is-transparent)
+      border-bottom 1px $border-color solid
     &.is-fixed
       padding-right $half-gutter
       padding-left $half-gutter

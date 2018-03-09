@@ -13,8 +13,9 @@ export default class HomePage extends Component {
         <ParallaxContainer
           className="hero-section"
           backgroundImage="/public/img/sample-bg-3.jpg">
+          <Header transparent />
           <div className="container">
-            <Header transparent />
+            <h2>Something incontainer </h2>
           </div>
         </ParallaxContainer>
         <div className="container">

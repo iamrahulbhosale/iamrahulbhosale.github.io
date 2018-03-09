@@ -10,9 +10,8 @@ import compression from 'compression'
 
 import getRouter from './routes/index'
 
-//eslint-disable-next-line no-unused-vars
 import {
-  printAsTable,
+  printAsTable, //eslint-disable-line no-unused-vars
   handleWorkboxRequests,
   CachedFileResponseMiddleware
 } from './helpers/common'

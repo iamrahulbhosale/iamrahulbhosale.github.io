@@ -9,24 +9,31 @@ const sw = new self.WorkboxSW({
   clientsClaim: true
 })
 
+function fetchAndPutInCache(url, cacheName, fileName) {
+  return caches
+    .open(cacheName)
+    .then(cache =>
+      fetch(url).then(response => {
+        return { cache, response }
+      })
+    )
+    .then(({ cache, response }) => cache.put(fileName, response))
+    .catch(err => {
+      console.log(`Could not open cache: ${cacheName}`)
+      return err
+    })
+}
+
 function cacheOfflineShell(event) {
-  console.log('will cache app-shell.html')
-  event.waitUntil(
-    caches
-      .open('offline-pages')
-      .then(cache => {
-        return fetch('/app-shell.html').then(response => {
-          cache.put('app-shell.html', response)
-        })
-      })
-      .then(() => {
-        console.log('/app-shell.html cached')
-      })
-      .catch(err => {
-        console.log('Could not catch app-shell')
-        console.error(err)
-      })
-  )
+  const promises = [
+    fetchAndPutInCache('/app-shell.html', 'offline-pages', 'app-shell.html')
+  ]
+
+  return Promise.all(promises)
+    .then(() => {
+      console.log('Finished cacheOfflineShell')
+    })
+    .catch(console.error.bind(console))
 }
 
 function isNavigationRequest(event) {
@@ -47,9 +54,20 @@ const handleNavigationRequests = event => {
   // if no handlers are present, the browser handles it
 }
 
-// eslint-disable-next-line no-restricted-globals
-self.addEventListener('install', cacheOfflineShell)
+function onInstallComplete(event) {
+  const promises = [cacheOfflineShell(event)]
 
+  event.waitUntil(
+    Promise.all(promises)
+      .then(() => {
+        console.log('Finished onInstallComplete chain successfully')
+      })
+      .catch(console.error.bind(console))
+  )
+}
+
+// Event Listeners
+self.addEventListener('install', onInstallComplete)
 self.addEventListener('fetch', handleNavigationRequests)
 
 // Runtime caching
