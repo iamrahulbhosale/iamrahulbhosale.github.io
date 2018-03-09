@@ -88,4 +88,4 @@ function GeneratePages() {
 }
 
 // Execute it
-GeneratePages()
+GeneratePages().then(() => process.exit(0))

@@ -50,3 +50,5 @@ function prettyPrintSizes(stats) {
 readBundle()
   .then(getGzipSizes)
   .then(prettyPrintSizes)
+  .then(() => process.exit(0))
+  .catch(console.error.bind(console))
