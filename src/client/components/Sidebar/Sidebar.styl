@@ -1,0 +1,46 @@
+$sidebar-width ?= 320px;
+$sidebar-bg ?= #ddd
+
+
+:local(.container)
+  position relative
+  z-index 10
+  display none
+  .sidebar-inner 
+    transform translate3d(-1 * $sidebar-width, 0, 0)
+    transition transform $time-2x ease
+    will-change transform
+  
+  .sidebar-backdrop 
+    display none
+    pointer-events none
+
+  &.is-open
+    display block
+    .sidebar-inner
+      transform translate3d(0px, 0, 0)
+    .sidebar-backdrop
+      display block
+      animation fadeIn $time-1x
+
+
+:local(.container)
+  .sidebar-inner 
+    position fixed
+    top 0 
+    left 0 
+    bottom 0
+    z-index 10
+    background-color $sidebar-bg
+    color $dark
+    width $sidebar-width
+  
+  .sidebar-backdrop
+    position fixed
+    top 0
+    cursor pointer
+    left 0
+    right 0 
+    bottom 0
+    z-index 9
+    background-color rgba(0,0,0,0.64)

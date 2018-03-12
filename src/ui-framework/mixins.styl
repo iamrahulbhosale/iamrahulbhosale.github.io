@@ -1,4 +1,4 @@
-placeholder()
+ui-placeholder()
   &::-webkit-input-placeholder
     {block}
 
@@ -14,7 +14,7 @@ placeholder()
 /*
  * Dimensions
  */
-square(size, radius)
+ui-square(size, radius)
   width size
   height size
 
@@ -22,9 +22,22 @@ square(size, radius)
     border-radius radius
 
 
-absolute-layer(_top = 0, _right = 0, _bottom = 0, _left = 0)
-  position absolute
+ui-positions(_top = 0, _right = 0, _bottom = 0, _left = 0)
   top _top
   right _right
   bottom _bottom
   left _left
+
+
+ui-absolute-layer(_top = 0, _right = 0, _bottom = 0, _left = 0)
+  position absolute
+  ui-positions _top, _right, _bottom, _left
+
+ui-fixed-layer(_top = 0, _right = 0, _bottom = 0, _left = 0)
+  position absolute
+  ui-positions _top, _right, _bottom, _left
+
+
+
+ui-transition($property = 'all', $timing = $time_1x, $easing = $default-easing)
+  transition $transition $timing $easing

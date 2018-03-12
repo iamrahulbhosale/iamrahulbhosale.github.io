@@ -3,14 +3,19 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import s from './Logo.styl'
 
-const Logo = ({ noText, primaryText, secondaryText }) => {
-  const cx = classnames(s.container, 'flex-horizontal a-center', {
-    'no-text': noText
-  })
+const Logo = ({ className, noText, primaryText, secondaryText, onClick }) => {
+  const cx = classnames(
+    s.container,
+    'flex-horizontal a-center',
+    {
+      'no-text': noText
+    },
+    className
+  )
   return (
-    <div className={cx}>
+    <div className={cx} onClick={onClick}>
       <div className="ui-logo-img">
-        <i className="material-icons">dashboard</i>
+        <i className="material-icons">menu</i>
       </div>
       {!!primaryText && <span className="ui-logo-text">{primaryText}</span>}
       {!!secondaryText && (

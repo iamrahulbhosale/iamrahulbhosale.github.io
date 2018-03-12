@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import Header from 'components/Header'
+
+import AppShell from 'containers/AppShell'
 
 export default class AboutPage extends Component {
   render() {
     return (
-      <div className="app-page about-page">
-        <Header />
+      <AppShell>
         <div className="container">
           <h2> About US </h2>
         </div>
-      </div>
+      </AppShell>
     )
   }
 }

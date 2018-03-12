@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
 const NAVIGATION_ITEMS = [
@@ -7,13 +7,16 @@ const NAVIGATION_ITEMS = [
 ]
 
 const Navigation = props => (
-  <div className="header-navigation">
+  <Fragment>
     {NAVIGATION_ITEMS.map((item, index) => (
-      <Link key={index} className="header-link" to={item.href}>
+      <Link
+        key={index}
+        className={`header-link ${props.itemClassName}`.trim()}
+        to={item.href}>
         {item.label}
       </Link>
     ))}
-  </div>
+  </Fragment>
 )
 
 export default Navigation

@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "analyze":
-      "npm-run-all clean profile && webpack-bundle-analyzer stats.json build/public -s gzip",
+    "analyze": "npm-run-all clean profile && webpack-bundle-analyzer stats.json build/public -s gzip",
     "build-client": "webpack --config tools/webpack.config.client.js",
     "build-prod": "NODE_ENV=production npm-run-all build gzip-size",
     "build-server": "webpack --config tools/webpack.config.server.js",
@@ -22,19 +21,14 @@
     "generate-pages": "DEBUG=react-app:* node tools/scripts/generate-pages",
     "gzip-size": "node tools/scripts/gzip-size",
     "pm2-delete": "pm2 delete react-app",
-    "pm2-start":
-      "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
+    "pm2-start": "NODE_ENV=production DEBUG=react-app:* pm2 start build/server.bundle.js --name react-app",
     "postinstall": "npm run build-prod",
-    "profile":
-      "NODE_ENV=production webpack --config tools/webpack.config.client.js --display normal --profile --json > stats.json",
-    "server":
-      "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
+    "profile": "NODE_ENV=production webpack --config tools/webpack.config.client.js --display normal --profile --json > stats.json",
+    "server": "DEBUG=react-app:* node -r source-map-support/register build/server.bundle.js",
     "start": "npm run server",
-    "watch-client":
-      "webpack-dev-server --config tools/webpack.config.client.js",
+    "watch-client": "webpack-dev-server --config tools/webpack.config.client.js",
     "watch-server": "webpack --watch --config tools/webpack.config.server.js",
-    "watch":
-      "npm-run-all clean build-client --parallel copy-watch watch-client watch-server"
+    "watch": "npm-run-all clean build-client --parallel copy-watch watch-client watch-server"
   },
   "private": true,
   "dependencies": {
@@ -79,7 +73,7 @@
     "postcss-loader": "^2.1.1",
     "pretty-error": "^2.1.1",
     "prop-types": "15.6.1",
-    "pug": "2.0.0",
+    "pug": "2.0.1",
     "purify-css": "^1.2.5",
     "react": "^16.2.0",
     "react-dev-utils": "^5.0.0",
@@ -93,13 +87,13 @@
     "redux-thunk": "^2.2.0",
     "rupture": "^0.7.1",
     "source-map-support": "^0.5.3",
-    "style-loader": "^0.20.2",
+    "style-loader": "0.20.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.0.1",
     "webpack": "4.1.1",
     "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-cli": "2.0.10",
+    "webpack-cli": "2.0.11",
     "webpack-manifest-plugin": "^2.0.0-rc.2",
     "webpack-node-externals": "^1.6.0",
     "workbox-webpack-plugin": "^2.1.3"

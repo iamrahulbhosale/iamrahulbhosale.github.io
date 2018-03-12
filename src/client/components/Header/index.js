@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import Logo from 'components/ui/Logo'
 import Navigation from './Navigation'
@@ -12,7 +12,8 @@ import s from './Header.styl'
 class Header extends Component {
   static propTypes = {
     sticky: PropTypes.bool,
-    fixed: PropTypes.bool
+    fixed: PropTypes.bool,
+    onMenuClick: PropTypes.func
   }
 
   static defaultProps = {
@@ -35,9 +36,12 @@ class Header extends Component {
 
     return (
       <header className={cx}>
-        <Link className="header-logo" to="/">
-          <Logo primaryText="REACT" secondaryText="APP" />
-        </Link>
+        <Logo
+          className="header-logo"
+          primaryText="REACT"
+          secondaryText="APP"
+          onClick={this.props.onMenuClick}
+        />
         <div className="flex-1" />
         <Navigation />
       </header>
