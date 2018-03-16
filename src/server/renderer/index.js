@@ -16,7 +16,7 @@ import getCriticalCSS from './get-critical-css'
 import renderTemplate from './render-template'
 import renderPage from './render-page'
 
-const debug = require('debug')('react-app:renderer')
+const debug = require('debug')('portfolio:renderer')
 
 export function StreamingRenderer(req, res, next) {
   const context = { req, res, next }

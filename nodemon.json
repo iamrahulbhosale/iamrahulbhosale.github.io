@@ -5,7 +5,7 @@
   "ignore": ["!build/public", "!build/views", "src/client"],
   "env": {
     "NODE_ENV": "development",
-    "DEBUG": "react-app:*"
+    "DEBUG": "portfolio:*"
   },
   "nodeArgs": ["-r", "source-map-support/register", "--inspect"]
 }

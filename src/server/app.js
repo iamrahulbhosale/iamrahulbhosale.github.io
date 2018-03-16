@@ -4,7 +4,7 @@ import express from 'express'
 import { configureServer, readDependencies } from './configure'
 import { Config, initConfig } from './config'
 
-const debug = require('debug')('react-app:server')
+const debug = require('debug')('portfolio:server')
 
 const app = express()
 

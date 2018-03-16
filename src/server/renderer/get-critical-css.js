@@ -7,8 +7,8 @@ import Promise from 'bluebird'
 
 // import { Config } from '../config'
 
-const debug = require('debug')('react-app:renderer:critical-css')
-const debugCSSCache = require('debug')('react-app:renderer:css-cache')
+const debug = require('debug')('portfolio:renderer:critical-css')
+const debugCSSCache = require('debug')('portfolio:renderer:css-cache')
 
 const cssBundlePath = path.join(__dirname + '/server.bundle.css')
 

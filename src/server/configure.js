@@ -19,7 +19,7 @@ import {
 //eslint-disable-next-line
 import { Config } from './config'
 
-const debug = require('debug')('react-app:server/configure')
+const debug = require('debug')('portfolio:server/configure')
 
 // Read external dependencies here
 // configs, buffers etc

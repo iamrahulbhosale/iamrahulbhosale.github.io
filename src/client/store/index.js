@@ -14,7 +14,7 @@ const STORE_TIMEOUT = 3000
 // Placeholder for redux store
 export var store
 
-const debug = require('debug')('react-app:store')
+const debug = require('debug')('portfolio:store')
 
 function _saveLocalState(providedState = {}) {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(providedState))

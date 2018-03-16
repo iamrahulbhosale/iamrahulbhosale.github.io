@@ -7,7 +7,7 @@ import { printAsTable } from 'helpers/common'
 
 import Paths from '../../../tools/paths'
 
-const debug = require('debug')('react-app:server:config')
+const debug = require('debug')('portfolio:server:config')
 
 const SAFE_KEYS_FOR_CLIENT = ['API_BASE']
 
