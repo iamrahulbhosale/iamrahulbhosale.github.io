@@ -133,7 +133,7 @@ if (IS_PROD) {
       './getDynamicRoutes'
     ),
     new ExtractTextPlugin({
-      filename: 'main.[contenthash:8].bundle.css',
+      filename: '[name].[contenthash:8].bundle.css',
       allChunks: true
     }),
 

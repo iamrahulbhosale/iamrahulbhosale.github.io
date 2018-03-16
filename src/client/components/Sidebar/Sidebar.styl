@@ -5,42 +5,30 @@ $sidebar-bg ?= #ddd
 :local(.container)
   position relative
   z-index 10
-  display none
   .sidebar-inner 
     transform translate3d(-1 * $sidebar-width, 0, 0)
-    transition transform $time-2x ease
+    transform-origin center left
+    transition transform $time-3x ease-in-out
     will-change transform
-  
-  .sidebar-backdrop 
-    display none
-    pointer-events none
 
   &.is-open
-    display block
+    ui-fixed-layer 0
     .sidebar-inner
       transform translate3d(0px, 0, 0)
     .sidebar-backdrop
-      display block
-      animation fadeIn $time-1x
+      animation fadeIn $time-2x
 
 
 :local(.container)
   .sidebar-inner 
-    position fixed
-    top 0 
-    left 0 
-    bottom 0
+    ui-absolute-layer 0 false 0 0
     z-index 10
     background-color $sidebar-bg
     color $dark
     width $sidebar-width
   
   .sidebar-backdrop
-    position fixed
-    top 0
-    cursor pointer
-    left 0
-    right 0 
-    bottom 0
     z-index 9
+    ui-absolute-layer 0
+    cursor pointer
     background-color rgba(0,0,0,0.64)

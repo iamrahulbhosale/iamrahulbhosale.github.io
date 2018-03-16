@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
 import Header from 'components/Header'
-// import Sidebar from 'components/Sidebar'
+import Sidebar from 'components/Sidebar'
 
 class AppShell extends Component {
   state = {
@@ -11,11 +11,11 @@ class AppShell extends Component {
   }
 
   closeSidebar = () => {
-    // this.setState({ isSidebarOpen: false })
+    this.setState({ isSidebarOpen: false })
   }
 
   openSidebar = () => {
-    // this.setState({ isSidebarOpen: true })
+    this.setState({ isSidebarOpen: true })
   }
 
   render() {
@@ -23,11 +23,11 @@ class AppShell extends Component {
     return (
       <div className={cx}>
         <Header {...this.props.headerProps} onMenuClick={this.openSidebar} />
-        {/* <Sidebar
+        <Sidebar
           {...this.props.sidebarProps}
           isOpen={this.state.isSidebarOpen}
           onRequestClose={this.closeSidebar}
-        /> */}
+        />
         {this.props.children}
       </div>
     )

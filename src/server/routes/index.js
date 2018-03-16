@@ -19,6 +19,7 @@ const handleStaticFiles = (req, res, next) => {
   next()
 }
 
+//eslint-disable-next-line no-unused-vars
 const handleAppShellRequest = (req, res, next) => {
   if (req.originalUrl.includes('app-shell.html')) {
     return res.render('index', getTemplateData(req))
@@ -36,17 +37,17 @@ export default function getRouter(app) {
   router.get('/ping', (req, res) => res.status(200).send('pong'))
 
   // No server rendering
-  // router.get('*', (req, res) => {
-  //   res.render('index', getTemplateData(req))
-  // })
+  router.get('*', handleStaticFiles, (req, res) => {
+    res.render('index', getTemplateData(req))
+  })
 
   // Server rendering
-  router.get(
-    '*',
-    handleStaticFiles,
-    handleAppShellRequest,
-    require('../renderer').StreamingRenderer
-  )
+  // router.get(
+  //   '*',
+  //   handleStaticFiles,
+  //   handleAppShellRequest,
+  //   require('../renderer').StreamingRenderer
+  // )
 
   return router
 }

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 
 const NAVIGATION_ITEMS = [
@@ -11,7 +12,7 @@ const Navigation = props => (
     {NAVIGATION_ITEMS.map((item, index) => (
       <Link
         key={index}
-        className={`header-link ${props.itemClassName}`.trim()}
+        className={classnames('header-link', props.itemClassName)}
         to={item.href}>
         {item.label}
       </Link>

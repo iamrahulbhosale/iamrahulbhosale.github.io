@@ -22,20 +22,27 @@ ui-square(size, radius)
     border-radius radius
 
 
-ui-positions(_top = 0, _right = 0, _bottom = 0, _left = 0)
-  top _top
-  right _right
-  bottom _bottom
-  left _left
+ui-positions(t= 0px, r = 0px, b = 0px, l= 0px)
+  if t isnt false
+    top t
+
+  if r isnt false
+    right r
+
+  if b isnt false
+    bottom b
+
+  if l isnt false
+    left l
 
 
-ui-absolute-layer(_top = 0, _right = 0, _bottom = 0, _left = 0)
+ui-absolute-layer(arguments)
   position absolute
-  ui-positions _top, _right, _bottom, _left
+  ui-positions arguments
 
-ui-fixed-layer(_top = 0, _right = 0, _bottom = 0, _left = 0)
-  position absolute
-  ui-positions _top, _right, _bottom, _left
+ui-fixed-layer(arguments)
+  position fixed
+  ui-positions arguments
 
 
 

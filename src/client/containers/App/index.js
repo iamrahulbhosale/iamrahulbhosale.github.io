@@ -11,6 +11,8 @@ import AppOverlays from './AppOverlays'
 // to whatever page they were on
 
 class App extends Component {
+  componentDidMount = () => {}
+
   render() {
     return (
       <Fragment>

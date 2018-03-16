@@ -9,20 +9,23 @@ const sw = new self.WorkboxSW({
   clientsClaim: true
 })
 
-function fetchAndPutInCache(url, cacheName, fileName) {
-  return caches
+const fetchWithCacheResponse = url => cache =>
+  fetch(url).then(response => {
+    return { cache, response }
+  })
+
+const putResponseInCacheWithFileName = fileName => ({ cache, response }) =>
+  cache.put(fileName, response)
+
+const fetchAndPutInCache = (url, cacheName, fileName) =>
+  caches
     .open(cacheName)
-    .then(cache =>
-      fetch(url).then(response => {
-        return { cache, response }
-      })
-    )
-    .then(({ cache, response }) => cache.put(fileName, response))
+    .then(fetchWithCacheResponse(url))
+    .then(putResponseInCacheWithFileName(fileName))
     .catch(err => {
       console.log(`Could not open cache: ${cacheName}`)
       return err
     })
-}
 
 function cacheOfflineShell(event) {
   const promises = [
@@ -36,6 +39,11 @@ function cacheOfflineShell(event) {
     .catch(console.error.bind(console))
 }
 
+/**
+ * Checks if a request is a navigation request
+ * Navigation requests mean a page change will occur
+ * @param {*} event
+ */
 function isNavigationRequest(event) {
   return (
     event.request.mode === 'navigate' ||

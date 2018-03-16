@@ -37,6 +37,11 @@ const store = configureStore(finalState, history)
 const onRenderComplete = () => {
   console.timeEnd('react:rendered-in')
   console.log('renderCount: ', renderCounter)
+
+  // Delete the server generated styles to avoid conflicts in hmr
+  if (__DEV__) {
+    document.getElementById('server-css').remove()
+  }
 }
 
 var renderCounter = 0
