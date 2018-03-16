@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-const debug = require('debug')('react-app:approutes')
+const debug = require('debug')('portfolio:approutes')
 
 const AuthRoute = props => {
   var authState = props.auth
