@@ -1,10 +1,203 @@
-:local(.container)
-  color inherit
+$highlight-color = #FF5454
 
-  .hero-section
-    padding-top $header-height
-    margin-bottom $gutter
-    height 72vh
-    
-  .ui-parallax-background
-    background-position center center 
+:local(.container)
+  .bg-dark
+    background-color $darker
+  .bg-light
+    background-color $lighter
+
+  .page-section
+    padding 150px 0
+    min-height 100vh
+    width 100vw
+    position relative
+    &.bg-dark
+      color #fff
+  
+  .live-button
+    font-weight $font-weight-bold
+    font-size 12px
+    position relative
+    &:after 
+      content ''
+      position absolute
+      top 4px
+      left -20px
+      width 10px
+      height 10px
+      background-color $highlight-color
+      border-radius 50%
+      animation pulsating-circle 4s linear infinite
+
+  .contact-button
+    cursor pointer
+    width 60px
+    height 60px
+    border-radius 50%
+    background-color #2D2F34
+    position fixed
+    bottom 50px
+    right 50px
+    z-index 10
+    padding-top 15px
+    padding-left 13px
+    &:after, &:before
+      content ''
+      border-radius 50%
+    &:before
+      ui-absolute-layer 0
+      z-index 0
+      border 1px #fff solid
+      opacity 0
+    &:after
+      ui-absolute-layer 0 0 0 0
+      z-index -1
+      transform-origin center center
+      transform scale(0)
+      transition transform $time-1x ease
+      background-color #fff
+
+    img
+      will-change transform
+      transform-origin bottom right
+      animation waving-hand 4s linear infinite
+    &:hover
+      &:after
+        transform scale(1)
+      &:before
+        animation growing-fading-circle $time-2x linear
+        animation-delay $time-1x
+
+:local(.container) .hero-section 
+  display flex
+  flex-direction column
+
+  $hero-text-line-height  = 67px
+
+  .hero-text-container
+    position relative
+    // margin-left 240px
+    z-index 2
+    flex 1
+    display flex
+    flex-direction column
+    justify-content center
+
+  .live-button
+    padding-right 10px
+
+  .go-down-button
+    cursor pointer
+    width 80px
+    position absolute
+    left 50%
+    bottom 20px
+    margin-left -40px
+    z-index 3
+
+  .hero-text
+    font-size 48px
+    font-weight $font-weight-bold
+    margin 0
+    line-height $hero-text-line-height
+    position relative
+    &:after
+      position absolute
+      left 0 
+      bottom 0 
+      right 0
+      top 0%
+      content ''
+      will-change top, opacity
+      z-index 1
+      opacity 1
+      background-color #000
+      transition top $time-4x ease, opacity $time-8x ease
+      &:last-child
+        transition-duration $time-7x
+      // transition-delay 0.4s
+
+  .highlight
+    color $highlight-color
+
+  .profile-image
+    position absolute
+    right 80px
+    top 60px
+    left 50%
+    bottom 60px
+    background-image url('/public/img/profile-image.jpg')
+    background-repeat no-repeat
+    background-size contain
+    background-position center right
+    transform translateY(60px)
+    opacity 0
+    will-change transform, opacity
+    transition transform $time-4x ease, opacity $time-4x ease
+    transition-delay $time-7x
+
+  &.will-animate
+    .hero-text:after
+      top 100%
+      opacity 0
+    .profile-image
+      transform translateY(0px)
+      opacity 1
+
+
+
+
+// Content Section
+:local(.container)
+  .content-p 
+    line-height 60px
+    font-size 36px
+    font-weight $font-weight-normal
+    letter-spacing 0
+
+  .top-right-info
+    width 120px
+    text-align left
+    transform rotate(90deg)
+    transform-origin bottom left 
+    font-weight $font-weight-bold
+    font-size 12px
+    color #000
+  
+  .w-75
+    width 80%
+
+  .content-h1
+    letter-spacing -3.3px
+    line-height 110px
+    font-size 100px
+    font-weight $font-weight-bolder
+    color #424A5C
+  
+    .split-word
+      display inline-block
+      text-transform uppercase
+      &:not(:last-child)
+        margin-right 1rem
+      
+      &:last-child
+        position relative
+        &:after, &:before
+          position absolute
+          border-radius 50%
+          content ''
+          background-color currentColor
+        &:before
+          opacity 0.05
+          right -100px
+          width 150px
+          height 150px
+
+        &:after
+          bottom 20px
+          right -40px
+          width 30px
+          height 30px
+          
+      
+

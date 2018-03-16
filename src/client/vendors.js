@@ -10,3 +10,6 @@ import 'redux-thunk'
 
 // other commonly used
 import 'classnames'
+
+import 'jquery'
+import 'velocity-animate'

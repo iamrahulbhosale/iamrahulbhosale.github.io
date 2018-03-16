@@ -4,3 +4,41 @@
 
   to
     transform opacity(1) translate3d(0, 0px, 0)
+
+
+@keyframes waving-hand 
+  0%
+    transform rotate(0deg) translate3d(0px, 0, 0)
+  2%
+    transform rotate(6deg) translate3d(1px, 0, 0)
+  5%
+    transform rotate(0deg) translate3d(0px, 0, 0)
+  7%
+    transform rotate(-6deg) translate3d(-1px, 0, 0)
+  10%
+    transform rotate(0deg) translate3d(0px, 0, 0)
+  12%
+    transform rotate(6deg) translate3d(1px, 0, 0)
+  15%
+    transform rotate(0deg) translate3d(0px, 0, 0)
+  17%
+    transform rotate(-6deg) translate3d(-1px, 0, 0)
+  20%
+    transform rotate(0deg) translate3d(0px, 0, 0)
+  100%
+    transform rotate(0deg) translate3d(0px, 0, 0)
+
+
+@keyframes growing-fading-circle 
+  0%
+    opacity 0 
+    transform scale(1)
+  40%
+    opacity 1
+    transform scale(1.2)
+  80%
+    opacity 0.5
+    transform scale(1.3)
+  to
+    opacity 0
+    transform scale(1.4)

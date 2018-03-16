@@ -1,0 +1,47 @@
+$sidebar-width ?= 30px
+
+:local(.container)
+  padding 50px 0
+  // width $sidebar-width
+  width 30px
+  display flex
+  flex-direction column
+
+  position absolute
+  // bottom 0
+  height 100vh
+  top 0
+  &:not(.in-right)
+    left 40px
+  
+  &.in-right
+    right 40px
+    text-align right
+
+  .sidebar-links
+    flex 1
+    position relative
+
+  .sidebar-link
+    display block
+    position absolute
+    &:not(.inverted)
+      transform rotate(-90deg)
+      transform-origin bottom left
+      left 80%
+    &.inverted
+      transform rotate(90deg)
+      transform-origin top right
+      right 80%
+
+    font-size 12px
+    font-weight $font-weight-bold
+    letter-spacing 1px
+
+    &.behance-link
+      bottom 90px
+    &.dribble-link
+      bottom 0px
+
+  
+  
