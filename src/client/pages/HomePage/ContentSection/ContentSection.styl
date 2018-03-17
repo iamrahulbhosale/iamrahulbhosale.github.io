@@ -8,6 +8,9 @@
     letter-spacing 0
     &:first-child
       margin-top 0
+    +below(rupture.desktop-cutoff)
+      font-size 18px
+      line-height 30px
 
   .top-right-info
     width 120px
@@ -32,6 +35,8 @@
       animation fadeIn $time-1x
     &.is-hidden > .rahul-runs-img
       display none
+    +mobile()
+      margin-top 30px
     
       
   .quote-icon
@@ -41,6 +46,8 @@
   
   .w-clamped
     width 85%
+    +mobile()
+      width 100%
 
   .content-h1
     letter-spacing -3.3px
@@ -48,6 +55,10 @@
     font-size 100px
     font-weight $font-weight-bolder
     color #424A5C
+    +below(rupture.desktop-cutoff)
+      font-size 18px
+      line-height 30px
+      letter-spacing 0px
   
   .split-word
     display inline-block
@@ -73,4 +84,16 @@
         right -40px
         width 30px
         height 30px
+      +mobile()
+        &:before
+          top -2px
+          right -34px
+          width 40px
+          height 40px
+        &:after
+          height 8px
+          width 8px
+          right -18px
+          top 14px
+      
 

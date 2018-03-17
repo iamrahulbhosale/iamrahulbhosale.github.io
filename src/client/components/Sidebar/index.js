@@ -63,7 +63,7 @@ export default class Sidebar extends Component {
 
     return (
       <div className={cx}>
-        {hasLogo && <Logo white={white} />}
+        {hasLogo && <Logo className="sidebar-logo" white={white} />}
         {children}
       </div>
     )

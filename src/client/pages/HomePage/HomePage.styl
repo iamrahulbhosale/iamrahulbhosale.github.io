@@ -10,6 +10,8 @@
     position relative
     &:not(.portfolio-section)
       padding 150px 0
+      +mobile()
+        padding 110px 0
     &:not(.bg-dark)
       background-color $lighter
     &.bg-dark
@@ -102,6 +104,8 @@
     left 0
     right 0
     bottom 0
+    +mobile()
+      position relative
 
   .cd-section.stuck .portfolio-section
     .portfolio-title, 
@@ -118,4 +122,6 @@
     .demo-links, 
     .case-study-button
       opacity 0
+      +mobile()
+        opacity 1
 

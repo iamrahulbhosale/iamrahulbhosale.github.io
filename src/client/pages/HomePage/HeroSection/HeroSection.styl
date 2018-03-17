@@ -29,6 +29,12 @@ $hero-text-line-height  = 67px
     margin 0
     line-height $hero-text-line-height
     position relative
+    +mobile()
+      font-size 24px
+      line-height 30px
+    +tablet()
+      font-size 36px
+      line-height 50px
     &:after
       position absolute
       left 0 
@@ -63,6 +69,13 @@ $hero-text-line-height  = 67px
     will-change transform, opacity
     transition transform $time-4x ease, opacity $time-4x ease
     transition-delay $time-7x
+    +mobile()
+      left 0px
+      right 0px
+      top 0
+      background-position center center
+      z-index 0
+      
 
   &.will-animate
     .hero-text:after

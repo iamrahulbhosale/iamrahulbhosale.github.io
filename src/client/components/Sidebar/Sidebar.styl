@@ -13,10 +13,18 @@ $sidebar-width ?= 30px
   top 0
   &:not(.in-right)
     left 40px
+    +mobile()
+      padding 25px 0
+      left 10px
+      .sidebar-links
+        display none
   
   &.in-right
     right 30px
     text-align right
+    +mobile()
+      padding 25px 0
+      right 15px
 
   .sidebar-links
     flex 1
@@ -45,3 +53,13 @@ $sidebar-width ?= 30px
 
   
   
+  .sidebar-logo
+    cursor pointer
+    position relative
+    z-index 1
+    +mobile()
+      margin-top -25px
+      margin-left -15px
+      background-color #121417
+      height 80px
+      width 80px

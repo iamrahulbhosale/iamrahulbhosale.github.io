@@ -28,12 +28,12 @@ export default class HeroSection extends Component {
           <SidebarLinks />
         </Sidebar>
         <div className="container hero-text-container">
-          <h2 className="hero-text">I’m a designer who believes design</h2>
-          <h2 className="hero-text">thinking can solve most problems.</h2>
-          <h2 className="hero-text">
+          <span className="hero-text">I’m a designer who believes design</span>
+          <span className="hero-text">thinking can solve most problems.</span>
+          <span className="hero-text">
             Philosophy:&nbsp;
             <span className="highlight">Good design is obvious.</span>
-          </h2>
+          </span>
         </div>
         <div className="profile-image" />
         <div className="go-down-button">
