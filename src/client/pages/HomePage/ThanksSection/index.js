@@ -38,7 +38,10 @@ export default class ThanksSection extends Component {
             </div>
             <div className="social-icons">
               <div className="social-icon">
-                <a href="https://dribbble.com/rahulbhosale" target="__blank">
+                <a
+                  className="social-link"
+                  href="https://dribbble.com/rahulbhosale"
+                  target="__blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -55,7 +58,10 @@ export default class ThanksSection extends Component {
                 </a>
               </div>
               <div className="social-icon">
-                <a href="https://www.behance.net/rahulbhosale" target="__blank">
+                <a
+                  className="social-link"
+                  href="https://www.behance.net/rahulbhosale"
+                  target="__blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="21"
@@ -73,6 +79,7 @@ export default class ThanksSection extends Component {
               </div>
               <div className="social-icon">
                 <a
+                  className="social-link"
                   href="https://www.instagram.com/rahul.design"
                   target="__blank">
                   <svg
@@ -91,13 +98,16 @@ export default class ThanksSection extends Component {
                 </a>
               </div>
               <div className="social-icon">
-                <a href="https://medium.com/@rahul.design" target="__blank">
+                <a
+                  className="social-link"
+                  href="https://medium.com/@rahul.design"
+                  target="__blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="22"
                     height="18"
                     viewBox="0 0 22 18">
-                    <g fill="none" fillRule="evenodd" opacity=".3">
+                    <g fill="none" fillRule="evenodd">
                       <path d="M-4-6h30v30H-4z" />
                       <path
                         fill="#FFF"
@@ -109,6 +119,7 @@ export default class ThanksSection extends Component {
               </div>
               <div className="social-icon">
                 <a
+                  className="social-link"
                   href="https://www.linkedin.com/in/iamrahulbhosale"
                   target="__blank">
                   <svg
