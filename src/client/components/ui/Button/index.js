@@ -4,15 +4,26 @@ import classnames from 'classnames'
 
 import s from './Button.styl'
 
+import noop from 'lodash/noop'
+
 const Button = props => {
-  const { isLoading, loadingText, className, children, ...otherProps } = props
+  const {
+    isLoading,
+    loadingText,
+    className,
+    children,
+    innerRef,
+    ...otherProps
+  } = props
 
   const cx = classnames(s.container, 'ui-button', className, {
     'is-loading': isLoading
   })
 
+  const joinRef = innerRef || noop
+
   return (
-    <button className={cx} {...otherProps}>
+    <button className={cx} {...otherProps} ref={joinRef}>
       {isLoading ? loadingText : children}
     </button>
   )

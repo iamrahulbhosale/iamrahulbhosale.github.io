@@ -1,25 +1,56 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-
 import { Link } from 'react-router-dom'
 
 import Sidebar, { SidebarLinks } from 'components/Sidebar'
-
 import Button from 'components/ui/Button'
 
-import debounce from 'lodash/debounce'
 import round from 'lodash/round'
 
 import s from './PortfolioSection.styl'
 
 export default class PortfolioSection extends Component {
   componentDidMount = () => {
-    this._scalePortfolioImage = debounce(this.scalePortfolioImage, 300)
-    window.addEventListener('scroll', this.scalePortfolioImage)
+    this._scalePortfolioImage = e => {
+      !this.isScaleImageBusy &&
+        window.requestAnimationFrame(() => {
+          this.isScaleImageBusy = true
+          this.scalePortfolioImage(e)
+        })
+    }
+    this._handleMouseMove = e => {
+      !this.isMouseMoveBusy &&
+        window.requestAnimationFrame(() => {
+          this.isMouseMoveBusy = true
+          this.handleMouseMove(e)
+        })
+    }
+
+    this.container.addEventListener('mousemove', this._handleMouseMove)
+    window.addEventListener('scroll', this._scalePortfolioImage)
   }
 
   componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.scalePortfolioImage)
+    window.removeEventListener('scroll', this._scalePortfolioImage)
+    this.container.removeEventListener('mousemove', this._handleMouseMove)
+  }
+
+  handleMouseMove = e => {
+    const dw = document.documentElement.clientWidth || window.innerWidth
+    const buttonBounds = this.caseStudyButton.getBoundingClientRect()
+    const bar = this.caseStudyButton.querySelector('.white-bg-bar')
+
+    if (dw < 768) {
+      return
+    }
+
+    var perc = Math.floor(e.pageX - buttonBounds.left) / 200
+    perc = perc < 0 ? 0 : perc > 1 ? 1 : perc
+    // console.log(perc)
+
+    bar.style.width = `${perc * 100}%`
+
+    this.isMouseMoveBusy = false
   }
 
   scalePortfolioImage = () => {
@@ -41,6 +72,8 @@ export default class PortfolioSection extends Component {
 
     const image = this.container.querySelector('.portfolio-item-image')
     image.style.transform = `scale(${1 + perc * factor})`
+
+    this.isScaleImageBusy = false
   }
 
   render() {
@@ -74,9 +107,12 @@ export default class PortfolioSection extends Component {
               </a>
             </div>
             <Link to={caseStudyLink}>
-              <Button className="case-study-button">
+              <Button
+                className="case-study-button"
+                innerRef={node => (this.caseStudyButton = node)}>
                 <span className="btn-text">Case Study</span>
                 <span className="btn-icon">→</span>
+                <div className="white-bg-bar" style={{ width: '0%' }} />
               </Button>
             </Link>
           </div>

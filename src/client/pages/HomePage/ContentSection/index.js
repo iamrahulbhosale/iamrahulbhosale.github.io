@@ -10,13 +10,19 @@ import s from './ContentSection.styl'
 
 export default class ContentSection extends Component {
   componentDidMount = () => {
-    this.handleScroll = () =>
-      window.requestAnimationFrame(this.handleLayoutOnScroll)
     window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    if (this.isLayoutBusy) {
+      return
+    }
+    window.requestAnimationFrame(this.handleLayoutOnScroll)
+    this.isLayoutBusy = true
   }
 
   handleLayoutOnScroll = () => {
@@ -37,6 +43,7 @@ export default class ContentSection extends Component {
       containerBounds.top <= 0 && containerBounds.bottom >= dh
     sidebars.forEach(s => s.classList.toggle('is-fixed', shouldFixSidebar))
     // console.log(containerBounds)
+    this.isLayoutBusy = false
   }
 
   renderHeadline = str => {

@@ -54,6 +54,20 @@ $porfolio-text-color = rgba(#000, 0.7)
 
   .case-study-button
     margin-top 30px
+    position relative
+    .btn-text, .btn-icon
+      position relative
+      z-index 1
+    &:hover .white-bg-bar
+      width 100% !important
+  .white-bg-bar
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    background-color #fff
+    will-change width
+    transition width 0.1s ease
 
   .demo-link
     &:not(:first-child)

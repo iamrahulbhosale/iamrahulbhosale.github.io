@@ -17,7 +17,15 @@ export default class HomePage extends Component {
   }
 
   handleScroll = () => {
+    const dw = document.documentElement.clientWidth || window.innerWidth
+    if (dw < 768) {
+      return
+    }
+    if (this.isLayoutBusy) {
+      return
+    }
     window.requestAnimationFrame(this.updateLayout)
+    this.isLayoutBusy = true
   }
 
   updateLayout = e => {
@@ -29,6 +37,7 @@ export default class HomePage extends Component {
       s.style.height = `${innerHeight}px`
       s.classList.toggle('stuck', this.isInViewport(s))
     })
+    this.isLayoutBusy = false
   }
 
   isInViewport = section => {
