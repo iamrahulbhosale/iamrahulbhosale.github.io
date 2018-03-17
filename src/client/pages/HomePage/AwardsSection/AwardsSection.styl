@@ -1,0 +1,45 @@
+:local(.container)
+  display flex
+  flex-direction column 
+  align-items center
+  justify-content center
+  
+  
+  .award-item
+    text-align center
+    display inline-block
+    width 33%
+    opacity 0.3
+    cursor pointer
+    margin 5vh 0
+    transition opacity $time-2x ease
+    +below(rupture.desktop-cutoff)
+      width 50%
+    .heart-gif
+      position absolute
+      right 10px
+      top -20px
+      will-change transform
+      transform translate3d(0px, 20px, 0px)
+      transition transform $time-2x ease
+    &:hover
+      opacity 1
+      .heart-gif
+        opacity 1
+        transform translate3d(0px, 0px, 0px)
+
+  .award-image
+    width 200px
+    height 90px
+    display flex
+    position relative
+    align-items center
+    justify-content center
+    margin-left auto
+    margin-right auto
+  
+  .award-text
+    line-height 31px
+    letter-spacing 0.6px
+    font-weight $font-weight-bold
+    font-size 14px

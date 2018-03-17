@@ -1,0 +1,37 @@
+:local(.container)
+  display flex
+  flex-direction column
+  justify-content center
+
+  .thanks-title 
+    font-weight $font-weight-bolder
+    font-size 80px
+    line-height 63px
+    letter-spacing 0.64px
+    text-align left
+    color #fff
+    margin-bottom 30px
+  
+  .thanks-sub-text
+    font-size 24px
+    color #fff
+    opacity 0.3
+    margin-bottom 60px
+    position relative
+    &:after
+      position absolute
+      left 0
+      bottom -50px
+      width 500px
+      max-width 60vw
+      height 1px
+      content ''
+      background-color $dark
+
+  .thanks-heart
+    color #ff4848
+    font-size 40px
+    margin-left 4px
+
+  .social-icons
+    margin-top 50px

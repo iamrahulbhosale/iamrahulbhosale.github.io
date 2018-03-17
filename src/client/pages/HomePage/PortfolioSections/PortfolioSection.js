@@ -45,7 +45,7 @@ export default class PortfolioSection extends Component {
     }
 
     var perc = Math.floor(e.pageX - buttonBounds.left) / 200
-    perc = perc < 0 ? 0 : perc > 1 ? 1 : perc
+    perc = perc < 0 ? 0 : perc > 1 ? 0 : perc
     // console.log(perc)
 
     bar.style.width = `${perc * 100}%`

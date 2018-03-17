@@ -6,6 +6,8 @@ import HeroSection from './HeroSection'
 import ContentSection from './ContentSection'
 import PortfolioSections from './PortfolioSections'
 import AwardsSection from './AwardsSection'
+import FocusSection from './FocusSection'
+import ThanksSection from './ThanksSection'
 
 export default class HomePage extends Component {
   componentDidMount = () => {
@@ -69,6 +71,12 @@ export default class HomePage extends Component {
 
         <div className="cd-section">
           <AwardsSection className="page-section" />
+        </div>
+        <div className="cd-section">
+          <FocusSection className="page-section" />
+        </div>
+        <div className="cd-section">
+          <ThanksSection className="page-section" />
         </div>
 
         <div className="contact-button">
