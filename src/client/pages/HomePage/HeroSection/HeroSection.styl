@@ -1,0 +1,75 @@
+$hero-text-line-height  = 67px
+
+
+:local(.container)  
+  display flex
+  flex-direction column
+
+  .hero-text-container
+    position relative
+    // margin-left 240px
+    z-index 2
+    flex 1
+    display flex
+    flex-direction column
+    justify-content center
+
+  .go-down-button
+    cursor pointer
+    width 80px
+    position absolute
+    left 50%
+    bottom 20px
+    margin-left -40px
+    z-index 3
+
+  .hero-text
+    font-size 48px
+    font-weight $font-weight-bold
+    margin 0
+    line-height $hero-text-line-height
+    position relative
+    &:after
+      position absolute
+      left 0 
+      bottom 0 
+      right 0
+      top 0%
+      content ''
+      will-change top, opacity
+      z-index 1
+      opacity 1
+      background-color #000
+      transition top $time-4x ease, opacity $time-8x ease
+      &:last-child
+        transition-duration $time-7x
+      // transition-delay 0.4s
+
+  .highlight
+    color $text-highlight-color
+
+  .profile-image
+    position absolute
+    right 80px
+    top 60px
+    left 40%
+    bottom 60px
+    background-image url('/public/img/profile-image.jpg')
+    background-repeat no-repeat
+    background-size contain
+    background-position center right
+    transform translateY(60px)
+    opacity 0
+    will-change transform, opacity
+    transition transform $time-4x ease, opacity $time-4x ease
+    transition-delay $time-7x
+
+  &.will-animate
+    .hero-text:after
+      top 100%
+      opacity 0
+    .profile-image
+      transform translateY(0px)
+      opacity 1
+
+

@@ -56,7 +56,7 @@ export default class Sidebar extends Component {
   render() {
     const { className, hasLogo, white, children, right } = this.props
 
-    const cx = classnames(s.container, className, {
+    const cx = classnames(s.container, 'app-sidebar', className, {
       'is-white': white,
       'in-right': right
     })

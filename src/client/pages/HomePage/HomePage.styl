@@ -1,5 +1,3 @@
-$highlight-color = #FF5454
-
 :local(.container)
   .bg-dark
     background-color $darker
@@ -7,17 +5,21 @@ $highlight-color = #FF5454
     background-color $lighter
 
   .page-section
-    padding 150px 0
     min-height 100vh
     width 100vw
     position relative
+    &:not(.portfolio-section)
+      padding 150px 0
+    &:not(.bg-dark)
+      background-color $lighter
     &.bg-dark
       color #fff
   
   .live-button
     font-weight $font-weight-bold
     font-size 12px
-    position relative
+    position absolute
+    right 20px
     &:after 
       content ''
       position absolute
@@ -25,9 +27,9 @@ $highlight-color = #FF5454
       left -20px
       width 10px
       height 10px
-      background-color $highlight-color
+      background-color $text-highlight-color
       border-radius 50%
-      animation pulsating-circle 4s linear infinite
+      
 
   .contact-button
     cursor pointer
@@ -47,7 +49,7 @@ $highlight-color = #FF5454
     &:before
       ui-absolute-layer 0
       z-index 0
-      border 1px #fff solid
+      border 1px #ddd solid
       opacity 0
     &:after
       ui-absolute-layer 0 0 0 0
@@ -55,7 +57,7 @@ $highlight-color = #FF5454
       transform-origin center center
       transform scale(0)
       transition transform $time-1x ease
-      background-color #fff
+      background-color #ddd
 
     img
       will-change transform
@@ -68,136 +70,52 @@ $highlight-color = #FF5454
         animation growing-fading-circle $time-2x linear
         animation-delay $time-1x
 
-:local(.container) .hero-section 
-  display flex
-  flex-direction column
-
-  $hero-text-line-height  = 67px
-
-  .hero-text-container
-    position relative
-    // margin-left 240px
-    z-index 2
-    flex 1
-    display flex
-    flex-direction column
-    justify-content center
-
-  .live-button
-    padding-right 10px
-
-  .go-down-button
-    cursor pointer
-    width 80px
-    position absolute
-    left 50%
-    bottom 20px
-    margin-left -40px
-    z-index 3
-
-  .hero-text
-    font-size 48px
-    font-weight $font-weight-bold
-    margin 0
-    line-height $hero-text-line-height
-    position relative
-    &:after
-      position absolute
-      left 0 
-      bottom 0 
-      right 0
-      top 0%
-      content ''
-      will-change top, opacity
-      z-index 1
-      opacity 1
-      background-color #000
-      transition top $time-4x ease, opacity $time-8x ease
-      &:last-child
-        transition-duration $time-7x
-      // transition-delay 0.4s
-
-  .highlight
-    color $highlight-color
-
-  .profile-image
-    position absolute
-    right 80px
-    top 60px
-    left 50%
-    bottom 60px
-    background-image url('/public/img/profile-image.jpg')
-    background-repeat no-repeat
-    background-size contain
-    background-position center right
-    transform translateY(60px)
-    opacity 0
-    will-change transform, opacity
-    transition transform $time-4x ease, opacity $time-4x ease
-    transition-delay $time-7x
-
-  &.will-animate
-    .hero-text:after
-      top 100%
-      opacity 0
-    .profile-image
-      transform translateY(0px)
-      opacity 1
 
 
 
 
-// Content Section
+// Portfolio Section 
 :local(.container)
-  .content-p 
-    line-height 60px
-    font-size 36px
-    font-weight $font-weight-normal
-    letter-spacing 0
 
-  .top-right-info
-    width 120px
-    text-align left
-    transform rotate(90deg)
-    transform-origin bottom left 
-    font-weight $font-weight-bold
-    font-size 12px
-    color #000
+  .herman-miller-portfolio .portfolio-item-details
+    background-image linear-gradient(90deg, #F8758F, #FFAA9F)
+
+  .compass-portfolio .portfolio-item-details
+    background-image linear-gradient(90deg, #60CCEF, #C6F0FF)
   
-  .w-75
-    width 80%
+  .indiez-portfolio .portfolio-item-details
+    background-image linear-gradient(90deg, #EEBB78, #FFF5A7)
 
-  .content-h1
-    letter-spacing -3.3px
-    line-height 110px
-    font-size 100px
-    font-weight $font-weight-bolder
-    color #424A5C
+  .chefstalk-portfolio .portfolio-item-details
+    background-image linear-gradient(90deg, #6BF9E0, #D3FFFC)
+
+
+
+// Scrolling Sections
+:local(.container)
+  .cd-section
+    position relative
+    min-height 100vh
   
-    .split-word
-      display inline-block
-      text-transform uppercase
-      &:not(:last-child)
-        margin-right 1rem
-      
-      &:last-child
-        position relative
-        &:after, &:before
-          position absolute
-          border-radius 50%
-          content ''
-          background-color currentColor
-        &:before
-          opacity 0.05
-          right -100px
-          width 150px
-          height 150px
+  .cd-section.stuck .page-section
+    position fixed
+    left 0
+    right 0
+    bottom 0
 
-        &:after
-          bottom 20px
-          right -40px
-          width 30px
-          height 30px
-          
-      
+  .cd-section.stuck .portfolio-section
+    .portfolio-title, 
+    .portfolio-description, 
+    .demo-links, 
+    .case-study-button
+      animation fadeIn $time-2x linear
+
+  
+  .cd-section:not(.stuck) .portfolio-section
+
+    .portfolio-title, 
+    .portfolio-description, 
+    .demo-links, 
+    .case-study-button
+      display none
 

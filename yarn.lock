@@ -7627,9 +7627,9 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-velocity-animate@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.5.1.tgz#606837047bab8fbfb59a636d1d82ecc3f7bd71a6"
+velocity-animate@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-2.0.2.tgz#e2662eef3fa5a910d07d379b0cf7f4e3fe35fdb1"
 
 vendors@^1.0.0:
   version "1.0.1"

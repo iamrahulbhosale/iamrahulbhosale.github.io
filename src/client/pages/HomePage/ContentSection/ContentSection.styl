@@ -1,0 +1,76 @@
+:local(.container)
+  .app-sidebar.is-fixed
+    position fixed
+  .content-p 
+    line-height 60px
+    font-size 36px
+    font-weight $font-weight-normal
+    letter-spacing 0
+    &:first-child
+      margin-top 0
+
+  .top-right-info
+    width 120px
+    text-align left
+    transform rotate(90deg)
+    transform-origin top left 
+    font-weight $font-weight-bold
+    font-size 12px
+    color #000
+
+  .rahul-runs 
+    margin 70px 0
+    position relative
+    ratio-box(930/390)
+    .rahul-runs-img
+      position absolute
+      top 0 
+      left 0 
+      right 0
+      bottom 0 
+    &:not(.is-hidden)
+      animation fadeIn $time-1x
+    &.is-hidden > .rahul-runs-img
+      display none
+    
+      
+  .quote-icon
+    margin-right 1rem
+  .content-emoji
+    margin-left 1rem
+  
+  .w-clamped
+    width 85%
+
+  .content-h1
+    letter-spacing -3.3px
+    line-height 110px
+    font-size 100px
+    font-weight $font-weight-bolder
+    color #424A5C
+  
+  .split-word
+    display inline-block
+    text-transform uppercase
+    &:not(:last-child)
+      margin-right 1rem
+    
+    &:last-child
+      position relative
+      &:after, &:before
+        position absolute
+        border-radius 50%
+        content ''
+        background-color currentColor
+      &:before
+        opacity 0.05
+        right -100px
+        width 150px
+        height 150px
+
+      &:after
+        bottom 20px
+        right -40px
+        width 30px
+        height 30px
+
