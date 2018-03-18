@@ -12,7 +12,8 @@ export default function AppRoutes(location, auth) {
   return (
     <Switch location={location}>
       <Route path="/" exact component={Pages.HomePage} />
-      <Route path="/404" exact component={Pages.NotFoundPage} />
+      <Route path="/live" component={Pages.LivePage} />
+      <Route path="/404" component={Pages.NotFoundPage} />
       <Route component={Pages.NotFoundPage} />
     </Switch>
   )
