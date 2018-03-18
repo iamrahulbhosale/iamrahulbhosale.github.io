@@ -63,19 +63,43 @@ export default class LivePhotosSection extends Component {
           </div>
           <div className="y-400" />
           <div className="photo-item">
-            <div className="photo-inner" />
+            <div className="photo-inner">
+              <img
+                className="img-fluid"
+                alt=""
+                src="/public/img/live/image-1.jpg"
+              />
+            </div>
             <div className="photo-name">Orange & Teal</div>
           </div>
           <div className="photo-item">
-            <div className="photo-inner" />
+            <div className="photo-inner">
+              <img
+                className="img-fluid"
+                alt=""
+                src="/public/img/live/image-2.jpg"
+              />
+            </div>
             <div className="photo-name">Bouncing Sun</div>
           </div>
           <div className="photo-item">
-            <div className="photo-inner" />
+            <div className="photo-inner">
+              <img
+                className="img-fluid"
+                alt=""
+                src="/public/img/live/image-3.jpg"
+              />
+            </div>
             <div className="photo-name">Bouncing Sun</div>
           </div>
           <div className="photo-item">
-            <div className="photo-inner" />
+            <div className="photo-inner">
+              <img
+                className="img-fluid"
+                alt=""
+                src="/public/img/live/image-4.jpg"
+              />
+            </div>
             <div className="photo-name">Study</div>
           </div>
         </div>

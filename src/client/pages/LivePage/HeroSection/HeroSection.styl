@@ -22,6 +22,19 @@
   .subword-soon
     color #DADADA
 
+  +mobile()
+    .hero-row:not(.in-center)
+      display none
+    .hero-row.in-center
+      height 100vh
+      & > div:not(.in-center)
+        display none
+      & > .in-center
+        font-size 30px
+        text-align center
+        width 100%
+        margin 0
+
 
 // Hover Colors
 :local(.container)

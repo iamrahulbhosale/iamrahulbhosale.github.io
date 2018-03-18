@@ -3,11 +3,17 @@ import classnames from 'classnames'
 
 import s from './HeroSection.styl'
 
+import { Link } from 'react-router-dom'
+import Logo from 'components/ui/Logo'
+
 export default class LivePageHeroSection extends Component {
   render() {
     const cx = classnames(s.container, 'hero-section', this.props.className)
     return (
       <div className={cx}>
+        <Link to="/" className="live-logo-link">
+          <Logo white className="live-logo" />
+        </Link>
         <div className="hero-row">
           <div className="hero-word w-digi">DIGITAL SKETCHBOOK</div>
           <div className="hero-word w-cine">CINEMAGRAPHS</div>
@@ -21,7 +27,7 @@ export default class LivePageHeroSection extends Component {
           <div className="hero-word w-mogr">MOGRAPHS</div>
           <div className="hero-word w-colo">COLOUR PALETTE</div>
         </div>
-        <div className="hero-row">
+        <div className="hero-row in-center">
           <div className="hero-word in-left w-hack">HACKS</div>
           <div className="hero-word in-center">
             <div className="subword-live">LIVE</div>
