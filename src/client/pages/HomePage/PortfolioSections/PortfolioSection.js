@@ -70,8 +70,15 @@ export default class PortfolioSection extends Component {
       perc = 0
     }
 
+    const scale = 1 + perc * factor
+    const scaleString = `scale(${scale}) translate3d(0,0,0)`
+    // console.log(bounds.top, dh, perc, scale)
+    this.container.classList.toggle('show-details', perc < 0.5)
+
     const image = this.container.querySelector('.portfolio-item-image')
-    image.style.transform = `scale(${1 + perc * factor})`
+    if (image.style.transform !== scaleString) {
+      image.style.transform = scaleString
+    }
 
     this.isScaleImageBusy = false
   }
@@ -109,7 +116,8 @@ export default class PortfolioSection extends Component {
             <Link to={caseStudyLink}>
               <Button
                 className="case-study-button"
-                innerRef={node => (this.caseStudyButton = node)}>
+                innerRef={node => (this.caseStudyButton = node)}
+                onClick={this.props.onCaseStudyClick}>
                 <span className="btn-text">Case Study</span>
                 <span className="btn-icon">→</span>
                 <div className="white-bg-bar" style={{ width: '0%' }} />

@@ -47,7 +47,7 @@ export const SidebarLinks = () => (
     <SidebarLink
       href="https://dribbble.com/rahulbhosale"
       className="dribble-link">
-      DRIBBLE
+      DRIBBBLE
     </SidebarLink>
   </div>
 )

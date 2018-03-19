@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import classnames from 'classnames'
 
 // import { Link } from 'react-router-dom'
-
-import Sidebar, { SidebarLinks } from 'components/Sidebar'
+// import Sidebar, { SidebarLinks } from 'components/Sidebar'
 
 import s from './ThanksSection.styl'
 
@@ -24,9 +23,9 @@ export default class ThanksSection extends Component {
     )
     return (
       <div className={cx} ref={node => (this.container = node)}>
-        <Sidebar hasLogo white>
+        {/* <Sidebar hasLogo white>
           <SidebarLinks />
-        </Sidebar>
+        </Sidebar> */}
         <div className="thanks-content">
           <div className="container">
             <div className="thanks-title">

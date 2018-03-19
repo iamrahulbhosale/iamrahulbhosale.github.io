@@ -1,9 +1,12 @@
 $porfolio-text-color = rgba(#000, 0.7)
+$detail-view-pad-x = 135px
+$detail-view-pad-y = 100px
 
 :local(.container)
   .app-sidebar 
     color $porfolio-text-color
-  
+    .sidebar-link
+      color $porfolio-text-color
 
   .portfolio-item-details
     padding-top 50px
@@ -17,14 +20,15 @@ $porfolio-text-color = rgba(#000, 0.7)
   
   .portfolio-item-image
     will-change transform
-    transform scale(1)
+    transform scale(1) translate3d(0,0,0)
     transform-origin center center
-    transition transform 0.1s ease-out
+    transition transform 0.1s linear
     width 600px
     height 300px
     position absolute
     left 50%
     top 50%
+    z-index 1
     margin-left -300px
     margin-top -150px
     box-shadow 0px 25px 50px 0 rgba(#000, 0.3)
@@ -103,3 +107,106 @@ $porfolio-text-color = rgba(#000, 0.7)
         position absolute
         content '.'
         left -25px
+
+
+// Detail View
+:local(.detailViewWrapper) 
+  position fixed
+  top 0
+  left 0 
+  bottom 0
+  right 0
+  z-index -1
+  overflow hidden
+
+  .detail-view-inner, .detail-view-backdrop
+    position absolute
+    top 0
+    bottom 0
+
+  .detail-view-inner
+    width 90vw
+    background-color #fff
+    overflow-y auto
+    z-index 2
+    will-change transform
+    transform translate3d(100vw, 0px, 0px)
+    transition transform $time-2x ease-in-out
+    transition-delay $time-1x
+  
+  .detail-view-backdrop
+    right 0
+    left 0
+    opacity 0
+    z-index 1
+    background-color rgba(0,0,0,0.5)
+    transition opacity $time-1x ease
+  
+  .back-button
+    cursor pointer
+    position absolute
+    left calc(5vw + 28px)
+    top 50px
+    width 60px
+    height 60px
+    z-index 30
+    background-color #222325
+    border-radius 50%
+    color #fff
+    display flex
+    align-items center
+    justify-content center
+    text-indent 0px
+    transition text-indent $time-1x ease
+    &:hover
+      background-color #fff
+      color #000
+      text-indent -10px
+      font-size 20px
+
+  &.is-open 
+    z-index 100
+    .detail-view-backdrop
+      opacity 1
+    .detail-view-inner
+      transform translate3d(10vw, 0px, 0px)
+
+
+:local(.detailViewWrapper)
+  
+  .detail-view-hero
+    display flex
+    align-items center
+    justify-content center
+    height 650px
+  .hero-content
+    padding $detail-view-pad-y $detail-view-pad-x
+    transform-origin center left
+    transform scale(0.82)
+  .hero-title
+    font-weight $font-weight-bolder
+    font-size 144px
+    max-width 70vw
+    line-height 130px
+    color #fff
+  .hero-description 
+    margin-top 30px
+    color #fff
+    font-size 36px
+    line-height 60px
+
+  .information-section 
+    margin 0 $detail-view-pad-x
+    padding $detail-view-pad-y 0
+    display flex
+    &:not(:last-child)
+      border-bottom 1px #979797 solid
+    .label 
+      width 250px
+      flex-shrink 0
+      font-size 36px
+      color #424A5C
+    .value 
+      font-size 36px
+      color #5F697E
+      opacity 0.6

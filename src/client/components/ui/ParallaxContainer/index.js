@@ -12,20 +12,29 @@ export default class ParallaxContainer extends Component {
   }
 
   componentDidMount = () => {
+    const { scrollParent = false } = this.props
+
+    this.scrollParent = !scrollParent
+      ? window
+      : typeof scrollParent === 'string'
+        ? document.querySelector(scrollParent)
+        : scrollParent
+
     this.lastPosition = 0
     this.isTicking = false
     this.speedFactor = 2
 
-    window.addEventListener('scroll', this.handleScroll, false)
+    this.scrollParent.addEventListener('scroll', this.handleScroll, false)
   }
 
   componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.handleScroll, false)
+    this.scrollParent.removeEventListener('scroll', this.handleScroll, false)
   }
 
   handleScroll = () => {
-    this.lastPosition = window.pageYOffset
-
+    this.lastPosition = this.scrollParent.scrollTop
+    // this.lastPosition = window.pageYOffset
+    // console.log('should scroll: ', this.lastPosition)
     if (!this.isTicking) {
       window.requestAnimationFrame(this.updatePosition)
       this.isTicking = true
@@ -42,7 +51,13 @@ export default class ParallaxContainer extends Component {
   }
 
   render() {
-    const { backgroundImage, className, children, ...others } = this.props
+    const {
+      backgroundImage,
+      className,
+      children,
+      scrollParent,
+      ...others
+    } = this.props
 
     const cx = classnames('ui-parallax-container', className)
 

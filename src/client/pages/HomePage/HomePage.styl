@@ -17,6 +17,8 @@
       background-color $lighter
     &.bg-dark
       color #fff
+      .page-title
+        color #fff
       
   
   .heart-gif
@@ -130,21 +132,29 @@
     +mobile()
       position relative
 
-  .cd-section.stuck .portfolio-section
+  .portfolio-section.show-details
     .portfolio-title, 
     .portfolio-description, 
     .demo-links, 
     .case-study-button
       opacity 1
-      animation fadeInDownShort $time-2x linear
+      transform translate3d(0px, 0px, 0px)
+      transition all 0.2s ease
+    .portfolio-description
+      transition-duration 0.25s
+    .demo-links
+      transition-duration 0.30s
+    .case-study-button
+      transition-duration 0.40s
 
   
-  .cd-section:not(.stuck) .portfolio-section
+  .portfolio-section:not(.show-details)
     .portfolio-title, 
     .portfolio-description, 
     .demo-links, 
     .case-study-button
       opacity 0
+      transform translate3d(0px, 40px, 0px)
       +mobile()
         opacity 1
 

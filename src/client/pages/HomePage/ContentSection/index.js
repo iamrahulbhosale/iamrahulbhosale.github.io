@@ -140,7 +140,35 @@ export default class ContentSection extends Component {
             </span>
             <br />
             <br />
-            More thoughts & work on Dribbble, Behance, Medium and Linkedin.
+            More thoughts & work on&nbsp;
+            <a
+              className="dribble-link"
+              href="https://dribbble.com/rahulbhosale"
+              rel="noopener noreferrer"
+              target="_blank">
+              Dribbble
+            </a>,&nbsp;
+            <a
+              className="behance-link"
+              href="https://www.behance.net/rahulbhosale"
+              rel="noopener noreferrer"
+              target="_blank">
+              Behance
+            </a>,&nbsp;
+            <a
+              className="medium-link"
+              href="https://medium.com/@rahul.design"
+              rel="noopener noreferrer"
+              target="_blank">
+              Medium
+            </a>&nbsp;and&nbsp;
+            <a
+              className="linkedin-link"
+              href="https://www.linkedin.com/in/iamrahulbhosale"
+              rel="noopener noreferrer"
+              target="_blank">
+              Linkedin
+            </a>.
           </div>
         </div>
 

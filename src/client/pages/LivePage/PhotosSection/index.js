@@ -26,7 +26,7 @@ export default class LivePhotosSection extends Component {
     const dw = document.documentElement.clientWidth || window.innerWidth
     const dh = document.documentElement.clientHeight || window.innerHeight
     const bounds = this.container.getBoundingClientRect()
-    const factor = 0.8
+    // const factor = 0.8
 
     if (dw < 768) {
       return
