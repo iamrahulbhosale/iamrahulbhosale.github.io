@@ -3,18 +3,7 @@ $porfolio-text-color = rgba(#000, 0.7)
 :local(.container)
   .app-sidebar 
     color $porfolio-text-color
-  .ui-button
-    color $porfolio-text-color
-    border-color $porfolio-text-color
-    min-width 200px
-    text-align left
-    display flex
-    align-items center
-    position relative
-    .btn-text
-      flex 1
-    .btn-icon
-      text-align right
+  
 
   .portfolio-item-details
     padding-top 50px
@@ -61,14 +50,42 @@ $porfolio-text-color = rgba(#000, 0.7)
     margin-top 20px
     font-size 18px
 
+  .ui-button
+    color $porfolio-text-color
+    border-color transparent
+    min-width 200px
+    text-align left
+    display flex
+    align-items center
+    position relative
+    .btn-text
+      flex 1
+    .btn-icon
+      text-align right
+
   .case-study-button
     margin-top 30px
     position relative
     .btn-text, .btn-icon
       position relative
       z-index 1
-    &:hover .white-bg-bar
-      width 100% !important
+    .btn-icon
+      will-change transform
+      transform translate3d(0px, 0px, 0px)
+      transition transform $time-2x ease
+    &:before 
+      position absolute
+      top 0 
+      left 0
+      right 0
+      bottom 0
+      border 1px black solid
+      content ''
+    &:hover .btn-icon
+      transform translate3d(10px, 0px, 0px)
+    // &:hover .white-bg-bar
+    //   width 100% !important
+  
   .white-bg-bar
     position absolute
     top 0
