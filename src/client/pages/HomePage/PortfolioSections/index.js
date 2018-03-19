@@ -66,6 +66,8 @@ export default class PortfolioSections extends Component {
                 links={currentCaseStudy.detailView.links}
                 testimonials={currentCaseStudy.detailView.testimonials}
                 heroImage={currentCaseStudy.detailView.heroImage}
+                images={currentCaseStudy.detailView.images}
+                videos={currentCaseStudy.detailView.videos}
               />
             )}
           </div>

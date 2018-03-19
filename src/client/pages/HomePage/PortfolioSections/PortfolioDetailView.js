@@ -4,6 +4,42 @@ import classnames from 'classnames'
 import ParallaxContainer from 'components/ui/ParallaxContainer'
 
 export default class PortfolioDetailView extends Component {
+  renderLinks = links => {
+    return (
+      <div className="information-section">
+        <div className="label" />
+        <div className="value">
+          {links.map((link, index) => (
+            <a className="info-link" href={link.href} key={index}>
+              <div className="info-icon">{link.icon}</div>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
+  renderTestimonials = testimonials => {
+    return (
+      <div className="information-section">
+        <div className="label" />
+        <div className="value">
+          {testimonials.map((testimonial, index) => (
+            <div className="info-testimonial" key={index}>
+              {testimonial.label}
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  renderImages = images => {
+    return images.map((image, index) => (
+      <img className="img-fluid" alt="" src={image} />
+    ))
+  }
+
   render() {
     const {
       className,
@@ -12,7 +48,11 @@ export default class PortfolioDetailView extends Component {
       description,
       heroImage,
       objective,
-      solution
+      solution,
+      links = [],
+      testimonials = [],
+      images = [],
+      videos = []
     } = this.props
 
     const cx = classnames(className, 'detail-view', {
@@ -38,6 +78,9 @@ export default class PortfolioDetailView extends Component {
           <div className="label">Solution</div>
           <div className="value">{solution}</div>
         </div>
+        {!!links.length && this.renderLinks(links || [])}
+        {!!testimonials.length && this.renderTestimonials(testimonials || [])}
+        {!!images.length && this.renderImages(images || [])}
       </div>
     )
   }

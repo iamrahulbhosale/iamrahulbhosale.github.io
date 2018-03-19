@@ -45,11 +45,14 @@ $sidebar-width ?= 30px
     font-size 12px
     font-weight $font-weight-bold
     letter-spacing 1px
+    transition letter-spacing $time-1x ease
 
     &.behance-link
-      bottom 90px
+      bottom 100px
     &.dribble-link
       bottom 0px
+    &:hover
+      letter-spacing 3px
 
   
   
