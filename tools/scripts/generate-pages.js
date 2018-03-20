@@ -54,13 +54,13 @@ function RenderOneRoute(routePath) {
     routePath === '/' || !routePath
       ? 'index.html'
       : routePath.replace('/', '') + '.html'
-
-  const cmd = `curl http://localhost:${CONFIG.NODE_PORT}${routePath} -o ${
+  const curl= `curl http://localhost:${CONFIG.NODE_PORT}${routePath}`
+  const cmd = `${curl} -o ${
     PATHS.BUILD
   }/${routeName}`
 
   // Render twice to allow critical css to picked up
-  return run(cmd).then(() => run(cmd))
+  return run(curl).then(() => run(cmd))
 }
 
 function RenderRoutes({ routesToRender, server }) {

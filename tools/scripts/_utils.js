@@ -8,8 +8,10 @@ const shouldIgnoreCommand = cmd => {
   const dangerous = IGNORE_LIST.some(x => cmd === x)
   if (dangerous) return true
 
-  const cleanedPath = cmd.replace(process.cwd(), '') //eslitn-disable-line
-
+  const cleanedPath = cmd.replace(process.cwd(), '') //eslint-disable-line no-unused-vars
+  if (cmd.includes('curl')) {
+    return false
+  }
   // Stop if command is not targeted in project directory
   return !cmd.includes(process.cwd())
 }
