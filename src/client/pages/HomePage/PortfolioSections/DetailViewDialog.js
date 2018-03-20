@@ -48,6 +48,10 @@ export default class DetailViewDialog extends Component {
       </div>
     )
 
+    if (__SERVER__) {
+      return null
+    }
+
     return ReactDOM.createPortal(
       element,
       document.getElementById('overlay-root')
