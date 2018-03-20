@@ -41,6 +41,7 @@ block head_scripts
 block content
   +lazy_scripts()
   section#root __inject_html__
+  section#overlay-root
 
   if is_prod
     script(defer type='text/javascript' src= webpack_assets['vendors.js'])

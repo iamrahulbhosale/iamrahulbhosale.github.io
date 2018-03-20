@@ -18,21 +18,21 @@ export default class PortfolioSection extends Component {
           this.scalePortfolioImage(e)
         })
     }
-    this._handleMouseMove = e => {
-      !this.isMouseMoveBusy &&
-        window.requestAnimationFrame(() => {
-          this.isMouseMoveBusy = true
-          this.handleMouseMove(e)
-        })
-    }
+    // this._handleMouseMove = e => {
+    //   !this.isMouseMoveBusy &&
+    //     window.requestAnimationFrame(() => {
+    //       this.isMouseMoveBusy = true
+    //       this.handleMouseMove(e)
+    //     })
+    // }
 
-    this.container.addEventListener('mousemove', this._handleMouseMove)
+    // this.container.addEventListener('mousemove', this._handleMouseMove)
     window.addEventListener('scroll', this._scalePortfolioImage)
   }
 
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this._scalePortfolioImage)
-    this.container.removeEventListener('mousemove', this._handleMouseMove)
+    // this.container.removeEventListener('mousemove', this._handleMouseMove)
   }
 
   handleMouseMove = e => {
@@ -116,7 +116,9 @@ export default class PortfolioSection extends Component {
               </a>
             </div>
             <Button
-              className="case-study-button"
+              className={classnames('case-study-button', {
+                'is-clickable': hasCaseStudy
+              })}
               innerRef={node => (this.caseStudyButton = node)}
               onClick={e => hasCaseStudy && this.props.onCaseStudyClick()}>
               <span className="btn-text">{caseStudyText}</span>

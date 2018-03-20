@@ -115,7 +115,12 @@ export default class ContentSection extends Component {
               <span className="first-split">Someone solved</span>
               <span>the problem of daily commute</span>
             </div>
-            <div className="content-p last-split">I’m one of that someone.</div>
+            <div className="content-p last-split">
+              <span role="img" aria-label="holdingcups" className="quote-icon">
+                🦄
+              </span>
+              <span>I’m one of that someone.</span>
+            </div>
           </div>
 
           <div className="content-p">

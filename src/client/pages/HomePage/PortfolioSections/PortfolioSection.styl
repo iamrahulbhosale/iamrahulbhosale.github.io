@@ -6,7 +6,7 @@ $detail-view-pad-y = 100px
   .app-sidebar 
     color $porfolio-text-color
     .sidebar-link
-      color $porfolio-text-color
+      color #000000
 
   .portfolio-item-details
     padding-top 50px
@@ -17,6 +17,8 @@ $detail-view-pad-y = 100px
     +mobile()
       height 65vh
       padding-left 50px
+    &:hover .is-clickable .white-bg-bar
+      width 100% !important
   
   
   .portfolio-item-image
@@ -35,9 +37,12 @@ $detail-view-pad-y = 100px
     box-shadow 0px 25px 50px 0 rgba(#000, 0.3)
     +mobile()
       width 90vw
-      height auto
+      height 45vw
       margin-left -45vw
       margin-top 35px
+    .item-img
+      object-fit cover
+      object-position center top
 
 
   .portfolio-title
@@ -87,8 +92,7 @@ $detail-view-pad-y = 100px
       content ''
     &:hover .btn-icon
       transform translate3d(10px, 0px, 0px)
-    // &:hover .white-bg-bar
-    //   width 100% !important
+    
   
   .white-bg-bar
     position absolute
@@ -97,7 +101,7 @@ $detail-view-pad-y = 100px
     bottom 0
     background-color #fff
     will-change width
-    transition width 0.1s ease
+    transition width $time-1x ease
 
   .demo-link
     &:not(:first-child)
@@ -149,7 +153,7 @@ $detail-view-pad-y = 100px
     top 50px
     width 60px
     height 60px
-    z-index 30
+    z-index 300
     background-color #222325
     border 1px #222325 solid
     border-radius 50%

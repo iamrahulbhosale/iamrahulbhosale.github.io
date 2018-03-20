@@ -20,26 +20,25 @@ export default class FocusSection extends Component {
           <SidebarLinks />
         </Sidebar>
         <div className="page-title">FOCUS</div>
-        <div className="container">
-          <div className="focus-list">
-            <div className="focus-item">
-              <div className="focus-text">UI / UX DESIGN</div>
-            </div>
-            <div className="focus-item">
-              <div className="focus-text">MOTION DESIGN</div>
-            </div>
-            <div className="focus-item">
-              <div className="focus-text">ILLUSTRATIONS</div>
-            </div>
-            <div className="focus-item">
-              <div className="focus-text">IDENTITY</div>
-            </div>
-            <div className="focus-item">
-              <div className="focus-text">NETWORK BRANDING</div>
-            </div>
-            <div className="focus-item">
-              <div className="focus-text">TYPOGRAPHY</div>
-            </div>
+
+        <div className="focus-list">
+          <div className="focus-item">
+            <div className="focus-text">UI / UX DESIGN</div>
+          </div>
+          <div className="focus-item">
+            <div className="focus-text">MOTION DESIGN</div>
+          </div>
+          <div className="focus-item">
+            <div className="focus-text">ILLUSTRATIONS</div>
+          </div>
+          <div className="focus-item">
+            <div className="focus-text">IDENTITY</div>
+          </div>
+          <div className="focus-item">
+            <div className="focus-text">NETWORK BRANDING</div>
+          </div>
+          <div className="focus-item">
+            <div className="focus-text">TYPOGRAPHY</div>
           </div>
         </div>
       </div>

@@ -27,11 +27,13 @@
       height 1px
       content ''
       background-color #fff
-
+  
   .thanks-heart
     color #ff4848
     font-size 40px
     margin-left 4px
+
+  
 
   .social-icons
     margin-top 100px
@@ -52,6 +54,22 @@
     &.is-active, &:hover
       opacity 1
       transform scale(1.3)
+  
+  +mobile()
+    .thanks-title 
+      font-size 48px
+    .thanks-subtitle
+      font-size 18px
+    .thanks-heart
+      font-size 16px
+    .social-icons
+      display flex
+      align-items center
+      justify-content space-between
+    .social-icon
+      margin-right 0px
+
+
   .social-link
     width 30px
     height 30px

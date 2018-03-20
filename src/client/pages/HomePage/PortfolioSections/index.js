@@ -2,10 +2,8 @@ import React, { Fragment, Component } from 'react'
 import classnames from 'classnames'
 
 import PortfolioSection from './PortfolioSection'
-import PortfolioDetailView from './PortfolioDetailView'
+import DetailViewDialog from './DetailViewDialog'
 import LIST from './portfolio.data'
-
-import s from './PortfolioSection.styl'
 
 export default class PortfolioSections extends Component {
   state = {
@@ -18,13 +16,6 @@ export default class PortfolioSections extends Component {
 
   openCaseStudy = caseStudyIndex => {
     this.setState({ caseStudyIndex })
-  }
-
-  componentDidUpdate = () => {
-    document.body.classList.toggle(
-      'no-scroll',
-      Number.isInteger(this.state.caseStudyIndex)
-    )
   }
 
   getDescription = description => {
@@ -41,38 +32,15 @@ export default class PortfolioSections extends Component {
   render() {
     const shouldOpenCaseStudy = Number.isInteger(this.state.caseStudyIndex)
 
-    const detailCx = classnames('detail-view-wrapper', s.detailViewWrapper, {
-      'is-open': shouldOpenCaseStudy
-    })
-
-    const currentCaseStudy = shouldOpenCaseStudy
-      ? LIST[this.state.caseStudyIndex]
-      : { detailView: {} }
-
     return (
       <Fragment>
-        <div className={detailCx}>
-          <div className="detail-view-inner">
-            <div className="back-button" onClick={this.closeCaseStudy}>
-              ←
-            </div>
-            {shouldOpenCaseStudy && (
-              <PortfolioDetailView
-                onRequestClose={this.closeCaseStudy}
-                title={currentCaseStudy.title}
-                description={currentCaseStudy.detailView.description}
-                objective={currentCaseStudy.detailView.objective}
-                solution={currentCaseStudy.detailView.solution}
-                links={currentCaseStudy.detailView.links}
-                testimonials={currentCaseStudy.detailView.testimonials}
-                heroImage={currentCaseStudy.detailView.heroImage}
-                images={currentCaseStudy.detailView.images}
-                videos={currentCaseStudy.detailView.videos}
-              />
-            )}
-          </div>
-          <div className="detail-view-backdrop" onClick={this.closeCaseStudy} />
-        </div>
+        {shouldOpenCaseStudy && (
+          <DetailViewDialog
+            caseStudyIndex={this.state.caseStudyIndex}
+            list={LIST}
+            onRequestClose={this.closeCaseStudy}
+          />
+        )}
 
         {LIST.map((portfolio, index) => (
           <div className="cd-section" key={index}>
