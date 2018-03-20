@@ -52,10 +52,10 @@ export default class PortfolioSections extends Component {
     return (
       <Fragment>
         <div className={detailCx}>
-          <div className="back-button" onClick={this.closeCaseStudy}>
-            ←
-          </div>
           <div className="detail-view-inner">
+            <div className="back-button" onClick={this.closeCaseStudy}>
+              ←
+            </div>
             {shouldOpenCaseStudy && (
               <PortfolioDetailView
                 onRequestClose={this.closeCaseStudy}
@@ -83,7 +83,6 @@ export default class PortfolioSections extends Component {
               mobileLink={portfolio.mobileLink || '#'}
               onCaseStudyClick={e => this.openCaseStudy(index)}
               hasCaseStudy={!!Object.keys(portfolio.detailView).length}
-              caseStudyLink={portfolio.caseStudyLink || '#'}
               image={portfolio.image}
               className={classnames('page-section', portfolio.className)}
             />

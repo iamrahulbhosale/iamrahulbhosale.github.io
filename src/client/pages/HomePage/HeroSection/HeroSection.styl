@@ -13,6 +13,9 @@ $hero-text-line-height  = 67px
     display flex
     flex-direction column
     justify-content center
+    +mobile()
+      justify-content flex-end
+      padding-bottom 10vh
 
   .go-down-button
     cursor pointer
@@ -32,6 +35,8 @@ $hero-text-line-height  = 67px
     +mobile()
       font-size 24px
       line-height 30px
+      .highlight
+        display block
     +tablet()
       font-size 36px
       line-height 50px

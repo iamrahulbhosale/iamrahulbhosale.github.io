@@ -36,7 +36,7 @@ export default class PortfolioDetailView extends Component {
 
   renderImages = images => {
     return images.map((image, index) => (
-      <img className="img-fluid" alt="" src={image} />
+      <img className="img-fluid" key={index} alt="" src={image} />
     ))
   }
 
@@ -51,8 +51,8 @@ export default class PortfolioDetailView extends Component {
       solution,
       links = [],
       testimonials = [],
-      images = [],
-      videos = []
+      images = []
+      // videos = []
     } = this.props
 
     const cx = classnames(className, 'detail-view', {

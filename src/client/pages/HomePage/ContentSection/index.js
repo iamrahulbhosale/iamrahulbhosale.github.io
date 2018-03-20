@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 
-// import { Link } from 'react-router-dom'
-
-// import debounce from 'lodash/debounce'
-
 import Sidebar, { SidebarLinks } from 'components/Sidebar'
+import { getBrowserWidth, getBrowserHeight } from 'utils/dom'
+import { MOBILE_BREAKPOINT } from 'utils/constants'
+
 import s from './ContentSection.styl'
 
 export default class ContentSection extends Component {
@@ -30,19 +29,25 @@ export default class ContentSection extends Component {
     const bounds = image.getBoundingClientRect()
 
     // Hide gif image when not in viewport, increases scroll performance
-    const dh = document.documentElement.clientHeight || window.innerHeight
+    const dh = getBrowserHeight()
+    const dw = getBrowserWidth()
+
     const isvisible =
       bounds.top < dh && bounds.bottom > 0 && bounds.bottom - bounds.height < dh
     image.classList.toggle('is-hidden', !isvisible)
 
     // Fix sidebar when in view
-    const containerBounds = this.container.getBoundingClientRect()
+    // we'll skip this on mobile devices
+    if (dw >= MOBILE_BREAKPOINT) {
+      const containerBounds = this.container.getBoundingClientRect()
+      const sidebars = Array.from(
+        this.container.querySelectorAll('.app-sidebar')
+      )
+      const shouldFixSidebar =
+        containerBounds.top <= 0 && containerBounds.bottom >= dh
+      sidebars.forEach(s => s.classList.toggle('is-fixed', shouldFixSidebar))
+    }
 
-    const sidebars = Array.from(this.container.querySelectorAll('.app-sidebar'))
-    const shouldFixSidebar =
-      containerBounds.top <= 0 && containerBounds.bottom >= dh
-    sidebars.forEach(s => s.classList.toggle('is-fixed', shouldFixSidebar))
-    // console.log(containerBounds)
     this.isLayoutBusy = false
   }
 
@@ -86,27 +91,31 @@ export default class ContentSection extends Component {
               <span role="img" aria-label="holdingcups" className="quote-icon">
                 ☕
               </span>
-              Someone solved the problem of holding cups
+              <span className="first-split">Someone solved</span>
+              <span>the problem of holding cups</span>
             </div>
             <div className="content-p">
               <span role="img" aria-label="holdingcups" className="quote-icon">
                 🕹
               </span>
-              Someone have solved the problem of light switch
+              <span className="first-split">Someone solved</span>
+              <span>the problem of light switch</span>
             </div>
             <div className="content-p">
               <span role="img" aria-label="holdingcups" className="quote-icon">
                 ☎️
               </span>
-              Someone have solved the problem of communication
+              <span className="first-split">Someone solved</span>
+              <span>the problem of communication</span>
             </div>
             <div className="content-p">
               <span role="img" aria-label="holdingcups" className="quote-icon">
                 🏂
               </span>
-              Someone have solved the problem of daily commute
+              <span className="first-split">Someone solved</span>
+              <span>the problem of daily commute</span>
             </div>
-            <div className="content-p">I’m one of that someone.</div>
+            <div className="content-p last-split">I’m one of that someone.</div>
           </div>
 
           <div className="content-p">

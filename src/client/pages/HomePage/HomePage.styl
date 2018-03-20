@@ -56,6 +56,8 @@
       height 10px
       background-color $text-highlight-color
       border-radius 50%
+    +mobile()
+      right 10px
       
 
   .contact-button
@@ -85,6 +87,9 @@
       transform scale(0)
       transition transform $time-1x ease
       background-color #ddd
+    +mobile()
+      bottom 30px
+      right 30px
 
     img
       will-change transform

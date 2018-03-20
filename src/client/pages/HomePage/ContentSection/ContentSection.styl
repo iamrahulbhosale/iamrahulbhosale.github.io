@@ -30,6 +30,13 @@
       color #6778FF
       display inline-block
 
+  .first-split + span 
+    margin-left 10px
+    +mobile()
+      display block
+      margin-left 40px
+      margin-bottom 1rem
+
   .top-right-info
     width 120px
     text-align left
@@ -38,6 +45,8 @@
     font-weight $font-weight-bold
     font-size 12px
     color #000
+    +mobile()
+      margin-left 25px
 
   .rahul-runs 
     margin 70px 0
@@ -59,6 +68,10 @@
       
   .quote-icon
     margin-right 1rem
+    width 32px
+    display inline-block
+    +mobile()
+      width 24px
   .content-emoji
     margin-left 1rem
   

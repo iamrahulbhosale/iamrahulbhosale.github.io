@@ -1,3 +1,5 @@
+import { MOBILE_BREAKPOINT } from 'utils/constants'
+
 /**
  * scrollToElement
  * smoothly scrolls to element/selector give in target parameter
@@ -57,4 +59,15 @@ export function focusNextInputOnEnter(e, containerEl) {
   if (nextInput) {
     nextInput.focus()
   }
+}
+
+export function getBrowserWidth() {
+  return document.documentElement.clientWidth || window.innerWidth
+}
+export function getBrowserHeight() {
+  return document.documentElement.clientHeight || window.innerHeight
+}
+
+export function isMobile() {
+  return getBrowserWidth() < MOBILE_BREAKPOINT
 }

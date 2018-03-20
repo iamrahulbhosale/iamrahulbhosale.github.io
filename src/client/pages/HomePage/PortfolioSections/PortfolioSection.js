@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import Sidebar, { SidebarLinks } from 'components/Sidebar'
 import Button from 'components/ui/Button'
@@ -91,10 +91,11 @@ export default class PortfolioSection extends Component {
       description,
       webLink,
       mobileLink,
-      caseStudyLink,
       hasCaseStudy,
       image
     } = this.props
+
+    const caseStudyText = hasCaseStudy ? 'Case Study' : 'Coming Soon'
 
     const cx = classnames(s.container, 'portfolio-section', className)
     return (
@@ -114,16 +115,14 @@ export default class PortfolioSection extends Component {
                 Mobile
               </a>
             </div>
-            <Link to={caseStudyLink}>
-              <Button
-                className="case-study-button"
-                innerRef={node => (this.caseStudyButton = node)}
-                onClick={e => hasCaseStudy && this.props.onCaseStudyClick()}>
-                <span className="btn-text">Case Study</span>
-                <span className="btn-icon">→</span>
-                <div className="white-bg-bar" style={{ width: '0%' }} />
-              </Button>
-            </Link>
+            <Button
+              className="case-study-button"
+              innerRef={node => (this.caseStudyButton = node)}
+              onClick={e => hasCaseStudy && this.props.onCaseStudyClick()}>
+              <span className="btn-text">{caseStudyText}</span>
+              {hasCaseStudy && <span className="btn-icon">→</span>}
+              <div className="white-bg-bar" style={{ width: '0%' }} />
+            </Button>
           </div>
         </div>
         <div className="portfolio-item-image">

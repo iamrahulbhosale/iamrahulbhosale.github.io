@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-
 import { Link } from 'react-router-dom'
 
 import Logo from 'components/ui/Logo'
+
+import { isMobile } from 'utils/dom'
 
 import s from './Sidebar.styl'
 
@@ -61,11 +62,13 @@ export default class Sidebar extends Component {
       'in-right': right
     })
 
+    const logoIsWhite = isMobile() ? true : white
+
     return (
       <div className={cx}>
         {hasLogo && (
           <Link to="/">
-            <Logo className="sidebar-logo" white={white} />
+            <Logo className="sidebar-logo" white={logoIsWhite} />
           </Link>
         )}
         {children}

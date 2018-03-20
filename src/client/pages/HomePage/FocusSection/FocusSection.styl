@@ -5,6 +5,8 @@
   justify-content center
   .focus-list
     width 100%
+    +mobile()
+      margin-left 60px
 
   .focus-item
     display inline-flex
@@ -19,6 +21,8 @@
     color #000
     opacity 1
     transition opacity $time-2x ease
+    +mobile()
+      justify-content flex-start
   
   .focus-item
     width 33%
