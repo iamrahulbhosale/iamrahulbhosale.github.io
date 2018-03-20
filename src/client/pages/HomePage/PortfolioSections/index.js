@@ -82,6 +82,7 @@ export default class PortfolioSections extends Component {
               webLink={portfolio.webLink || '#'}
               mobileLink={portfolio.mobileLink || '#'}
               onCaseStudyClick={e => this.openCaseStudy(index)}
+              hasCaseStudy={!!Object.keys(portfolio.detailView).length}
               caseStudyLink={portfolio.caseStudyLink || '#'}
               image={portfolio.image}
               className={classnames('page-section', portfolio.className)}

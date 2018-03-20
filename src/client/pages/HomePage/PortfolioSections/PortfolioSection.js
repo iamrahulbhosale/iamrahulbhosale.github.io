@@ -92,6 +92,7 @@ export default class PortfolioSection extends Component {
       webLink,
       mobileLink,
       caseStudyLink,
+      hasCaseStudy,
       image
     } = this.props
 
@@ -117,7 +118,7 @@ export default class PortfolioSection extends Component {
               <Button
                 className="case-study-button"
                 innerRef={node => (this.caseStudyButton = node)}
-                onClick={this.props.onCaseStudyClick}>
+                onClick={e => hasCaseStudy && this.props.onCaseStudyClick()}>
                 <span className="btn-text">Case Study</span>
                 <span className="btn-icon">→</span>
                 <div className="white-bg-bar" style={{ width: '0%' }} />
