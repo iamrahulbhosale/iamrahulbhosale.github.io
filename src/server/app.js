@@ -15,7 +15,7 @@ const runServer = app => {
     process.env.PORT && Number.isInteger(Number(process.env.PORT))
       ? process.env.PORT
       : Config.NODE_PORT
-
+  // console.log('using port: ', port, process.env.PORT, Config.NODE_PORT)
   serverInstance = app.listen(port, function onListentingCB() {
     debug(`Node server on http://127.0.0.1:${port}`)
     if (__DEV__) {

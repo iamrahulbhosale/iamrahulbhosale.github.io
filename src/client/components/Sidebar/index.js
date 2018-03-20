@@ -62,7 +62,7 @@ export default class Sidebar extends Component {
       'in-right': right
     })
 
-    const logoIsWhite = __SERVER__ ? white : isMobile() ? true : white
+    const logoIsWhite = !!window && isMobile() ? true : white
 
     return (
       <div className={cx}>

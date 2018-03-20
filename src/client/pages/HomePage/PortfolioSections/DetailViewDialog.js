@@ -49,7 +49,7 @@ export default class DetailViewDialog extends Component {
     )
 
     if (__SERVER__) {
-      return null
+      return element
     }
 
     return ReactDOM.createPortal(

@@ -58,7 +58,9 @@ function RenderOneRoute(routePath) {
   const cmd = `curl http://localhost:${CONFIG.NODE_PORT}${routePath} -o ${
     PATHS.BUILD
   }/${routeName}`
-  return run(cmd)
+
+  // Render twice to allow critical css to picked up
+  return run(cmd).then(() => run(cmd))
 }
 
 function RenderRoutes({ routesToRender, server }) {
