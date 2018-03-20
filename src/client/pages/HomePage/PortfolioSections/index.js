@@ -30,17 +30,15 @@ export default class PortfolioSections extends Component {
   }
 
   render() {
-    const shouldOpenCaseStudy = Number.isInteger(this.state.caseStudyIndex)
+    // const shouldOpenCaseStudy = Number.isInteger(this.state.caseStudyIndex)
 
     return (
       <Fragment>
-        {shouldOpenCaseStudy && (
-          <DetailViewDialog
-            caseStudyIndex={this.state.caseStudyIndex}
-            list={LIST}
-            onRequestClose={this.closeCaseStudy}
-          />
-        )}
+        <DetailViewDialog
+          caseStudyIndex={this.state.caseStudyIndex}
+          list={LIST}
+          onRequestClose={this.closeCaseStudy}
+        />
 
         {LIST.map((portfolio, index) => (
           <div className="cd-section" key={index}>

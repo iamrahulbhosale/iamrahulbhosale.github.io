@@ -148,12 +148,16 @@ $detail-view-pad-y = 100px
   
   .back-button
     cursor pointer
-    position absolute
+    position fixed
     left 50px
     top 50px
+    z-index 300
+    +mobile()
+      left 25px
+      top 25px
+  .back-button-inner
     width 60px
     height 60px
-    z-index 300
     background-color #222325
     border 1px #222325 solid
     border-radius 50%
@@ -186,19 +190,19 @@ $detail-view-pad-y = 100px
     height 650px
   .hero-content
     padding $detail-view-pad-y $detail-view-pad-x
-    transform-origin center left
-    transform scale(0.82)
   .hero-title
     font-weight $font-weight-bolder
     font-size 144px
     max-width 70vw
     line-height 130px
     color #fff
+
   .hero-description 
     margin-top 30px
     color #fff
     font-size 36px
     line-height 60px
+  
 
   .information-section 
     margin 0 $detail-view-pad-x
@@ -207,19 +211,68 @@ $detail-view-pad-y = 100px
     &:not(:last-child)
       border-bottom 1px #979797 solid
     .label 
-      width 250px
+      width 400px
       flex-shrink 0
       font-size 36px
       color #424A5C
     .value 
       font-size 36px
-      color #5F697E
-      opacity 0.6
+      color rgba(#5F697E, 0.6)
   .info-link
     display flex
     line-height 80px
     color #000
-
+  .detail-image
+    width 100vw
   .info-icon
     width 60px
     margin-left -60px
+  +tablet()
+    .hero-content
+      padding-left 60px
+      padding-right 60px
+    .hero-title
+      font-size 100px
+      line-height 100px
+    .hero-description
+      font-size 30px
+      line-height 36px
+    .information-section
+      margin 0 60px
+      padding 80px 0
+      .label
+        width 250px
+        font-size 28px
+      .value
+        font-size 30px
+      
+
+
+  +mobile()
+    .hero-content
+      padding-left 25px
+      padding-right 25px
+    .hero-title
+      font-size 72px
+      line-height 70px
+    .hero-description
+      font-size 20px
+      line-height 28px
+    .information-section
+      margin 0 25px
+      padding 50px 0
+      flex-direction column
+      .label 
+        width 100%
+        margin-bottom 25px
+        &:empty
+          display none
+      .value
+        font-size 24px
+        line-height 32px
+    .info-link
+      line-height 60px
+      font-size 18px
+    .info-icon
+      margin-left 0
+      flex-shrink 0

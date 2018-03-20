@@ -36,7 +36,7 @@ export default class PortfolioDetailView extends Component {
 
   renderImages = images => {
     return images.map((image, index) => (
-      <img className="img-fluid" key={index} alt="" src={image} />
+      <img className="img-fluid detail-image" key={index} alt="" src={image} />
     ))
   }
 

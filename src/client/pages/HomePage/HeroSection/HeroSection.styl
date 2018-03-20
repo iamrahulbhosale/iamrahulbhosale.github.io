@@ -40,21 +40,16 @@ $hero-text-line-height  = 67px
     +tablet()
       font-size 36px
       line-height 50px
-    &:after
-      position absolute
-      left 0 
-      bottom 0 
-      right 0
-      top 0%
-      content ''
-      will-change top, opacity
-      z-index 1
-      opacity 1
-      background-color #000
-      transition top $time-4x ease, opacity $time-8x ease
-      &:last-child
-        transition-duration $time-7x
-      // transition-delay 0.4s
+
+  .hero-text
+    opacity 0
+    transform translate3d(0px, 40px, 0px)
+    will-change transform, opacity
+    transition transform $time-2x ease, opacity $time-2x ease
+    &:nth-child(2)
+      transition-duration $time-3x
+    &:nth-child(3)
+      transition-dudation $time-4x
 
   .highlight
     color $text-highlight-color
@@ -69,11 +64,10 @@ $hero-text-line-height  = 67px
     background-repeat no-repeat
     background-size contain
     background-position center right
-    transform translateY(60px)
+    transform translate3d(0px, 100px, 0px)
     opacity 0
     will-change transform, opacity
-    transition transform $time-4x ease, opacity $time-4x ease
-    transition-delay $time-7x
+    transition transform $time-2x ease, opacity $time-2x ease
     +mobile()
       left 0px
       right 0px
@@ -82,12 +76,12 @@ $hero-text-line-height  = 67px
       z-index 0
       
 
-  &.will-animate
-    .hero-text:after
-      top 100%
-      opacity 0
-    .profile-image
-      transform translateY(0px)
-      opacity 1
+  
+  .hero-text.will-animate
+    opacity 1
+    transform translate3d(0px, 0px, 0px)
+  .profile-image.will-animate
+    transform translate3d(0px, 0px, 0px)
+    opacity 1
 
 

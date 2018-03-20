@@ -5,15 +5,30 @@ import { Link } from 'react-router-dom'
 
 import Sidebar, { SidebarLinks } from 'components/Sidebar'
 
+import { TRANSITION_END_EVENT } from 'utils/constants'
+
 import s from './HeroSection.styl'
 
 export default class HeroSection extends Component {
   componentDidMount = () => {
     setTimeout(this.animate, 400)
+    console.log('will use event: ', TRANSITION_END_EVENT)
   }
 
   animate = () => {
-    this.container.classList.add('will-animate')
+    const texts = Array.from(this.container.querySelectorAll('.hero-text'))
+    const lastText = texts[texts.length - 1]
+
+    TRANSITION_END_EVENT.split(' ').forEach(evt => {
+      lastText.addEventListener(evt, this.onTextAnimationComplete)
+    })
+
+    texts.forEach(x => x.classList.add('will-animate'))
+  }
+
+  onTextAnimationComplete = e => {
+    console.log('transition done')
+    this.container.querySelector('.profile-image').classList.add('will-animate')
   }
 
   render() {
