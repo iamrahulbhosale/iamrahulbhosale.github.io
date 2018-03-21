@@ -2,6 +2,14 @@
   display flex
   flex-direction column
   justify-content center
+  
+  &.page-section.thanks-section
+    padding-bottom 50px
+  .thanks-content, .thanks-inner
+    flex 1
+    display flex 
+    flex-direction column
+  
 
   .thanks-title 
     font-weight $font-weight-bolder
@@ -36,7 +44,7 @@
   
 
   .social-icons
-    margin-top 100px
+    margin-top 50px
   .social-icon
     margin-right 50px
     margin-bottom 50px
@@ -85,3 +93,30 @@
       height 16px
     
     
+:local(.container)
+  .location-container
+    display flex
+  
+  .logo-wrapper
+    width 60px
+    height 60px
+    background-color #121417
+    display flex
+    align-items center
+    justify-content center
+  .location-details
+    margin-left 30px
+    display flex
+    flex-direction column
+  .location-label
+    font-size 14px
+    line-height 18px
+    flex 1
+    color #777777
+  .location-value 
+    font-size 24px
+    line-height 31px
+    position relative
+  .location-emoji
+    position absolute
+    right -24px
