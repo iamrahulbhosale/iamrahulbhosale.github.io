@@ -26,7 +26,15 @@ export default [
       testimonials: [],
       heroImage: '/public/img/detail-view/herman-miller-hero.jpg',
       images: ['/public/img/detail-view/herman-miller-image-1.jpg'],
-      videos: []
+      videosBeforeImages: [
+        'https://player.vimeo.com/video/161397983?title=0&byline=0&loop=1&background=1&portrait=0',
+        'https://player.vimeo.com/video/161817947?title=0&byline=0&loop=1&background=1&portrait=0'
+      ],
+      videosAfterImages: [
+        'https://player.vimeo.com/video/161658168?title=0&byline=0&loop=1&background=1&portrait=0',
+        'https://player.vimeo.com/video/161723095?title=0&byline=0&loop=1&background=1&portrait=0',
+        'https://player.vimeo.com/video/161664417?title=0&byline=0&loop=1&background=1&portrait=0'
+      ]
     }
   },
   {

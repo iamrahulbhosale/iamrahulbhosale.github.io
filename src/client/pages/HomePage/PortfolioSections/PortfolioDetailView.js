@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 
+import Embed, { VimeoEmbed } from 'components/ui/Embed'
 import ParallaxContainer from 'components/ui/ParallaxContainer'
 
 export default class PortfolioDetailView extends Component {
@@ -36,8 +37,20 @@ export default class PortfolioDetailView extends Component {
 
   renderImages = images => {
     return images.map((image, index) => (
-      <img className="img-fluid detail-image" key={index} alt="" src={image} />
+      <div className="project-image">
+        <img className="img-fluid" key={index} alt="" src={image} />
+      </div>
     ))
+  }
+
+  renderOneVideo = (url, index) => {
+    return (
+      <div className="project-video-container">
+        <Embed key={index}>
+          <VimeoEmbed title="project-video" url={url} />
+        </Embed>
+      </div>
+    )
   }
 
   render() {
@@ -51,8 +64,9 @@ export default class PortfolioDetailView extends Component {
       solution,
       links = [],
       testimonials = [],
-      images = []
-      // videos = []
+      images = [],
+      videosBeforeImages = [],
+      videosAfterImages = []
     } = this.props
 
     const cx = classnames(className, 'detail-view', {
@@ -78,9 +92,16 @@ export default class PortfolioDetailView extends Component {
           <div className="label">Solution</div>
           <div className="value">{solution}</div>
         </div>
+
         {!!links.length && this.renderLinks(links || [])}
+
         {!!testimonials.length && this.renderTestimonials(testimonials || [])}
+
+        {videosBeforeImages.map(this.renderOneVideo)}
+
         {!!images.length && this.renderImages(images || [])}
+
+        {videosAfterImages.map(this.renderOneVideo)}
       </div>
     )
   }

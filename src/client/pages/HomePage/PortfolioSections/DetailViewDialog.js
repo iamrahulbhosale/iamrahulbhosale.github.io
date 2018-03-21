@@ -37,7 +37,10 @@ export default class DetailViewDialog extends Component {
               testimonials={currentCaseStudy.detailView.testimonials}
               heroImage={currentCaseStudy.detailView.heroImage}
               images={currentCaseStudy.detailView.images}
-              videos={currentCaseStudy.detailView.videos}
+              videosBeforeImages={
+                currentCaseStudy.detailView.videosBeforeImages
+              }
+              videosAfterImages={currentCaseStudy.detailView.videosAfterImages}
             />
           )}
         </div>

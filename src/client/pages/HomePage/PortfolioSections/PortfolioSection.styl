@@ -152,9 +152,14 @@ $detail-view-pad-y = 100px
     left 50px
     top 50px
     z-index 300
+    opacity 0
+    transform translate3d(-40px, 0px, 0px)
+    transition opacity $time-2x ease, transform $time-2x ease-in
+    transition-delay $time-3x
     +mobile()
       left 25px
       top 25px
+  
   .back-button-inner
     width 60px
     height 60px
@@ -175,6 +180,9 @@ $detail-view-pad-y = 100px
 
   &.is-open 
     z-index 100
+    .back-button
+      opacity 1
+      transform translate3d(0px, 0px, 0px)
     .detail-view-backdrop
       opacity 1
     .detail-view-inner
@@ -188,7 +196,10 @@ $detail-view-pad-y = 100px
     align-items center
     justify-content center
     height 650px
+    & + .information-section
+      border-top none
   .hero-content
+    width 100%
     padding $detail-view-pad-y $detail-view-pad-x
   .hero-title
     font-weight $font-weight-bolder
@@ -203,13 +214,25 @@ $detail-view-pad-y = 100px
     font-size 36px
     line-height 60px
   
+  .project-video-container 
+    padding 50px 10vw
+    .ui-embed
+      margin 0 auto
+
+  .project-image
+    width 100vw
+    margin 0
+
+  .project-video-container,
+  .project-image
+    background-color #353535
+
 
   .information-section 
     margin 0 $detail-view-pad-x
     padding $detail-view-pad-y 0
     display flex
-    &:not(:last-child)
-      border-bottom 1px #979797 solid
+    border-top 1px #979797 solid
     .label 
       width 400px
       flex-shrink 0
@@ -222,8 +245,8 @@ $detail-view-pad-y = 100px
     display flex
     line-height 80px
     color #000
-  .detail-image
-    width 100vw
+  
+  
   .info-icon
     width 60px
     margin-left -60px
