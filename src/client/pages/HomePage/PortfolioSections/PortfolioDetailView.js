@@ -37,15 +37,15 @@ export default class PortfolioDetailView extends Component {
 
   renderImages = images => {
     return images.map((image, index) => (
-      <div className="project-image">
-        <img className="img-fluid" key={index} alt="" src={image} />
+      <div className="project-image" key={index}>
+        <img className="img-fluid" alt="" src={image} />
       </div>
     ))
   }
 
   renderOneVideo = (url, index) => {
     return (
-      <div className="project-video-container">
+      <div className="project-video-container" key={index}>
         <Embed key={index}>
           <VimeoEmbed title="project-video" url={url} />
         </Embed>

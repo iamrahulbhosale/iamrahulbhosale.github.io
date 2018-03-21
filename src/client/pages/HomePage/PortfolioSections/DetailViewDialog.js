@@ -5,6 +5,22 @@ import PortfolioDetailView from './PortfolioDetailView'
 import s from './PortfolioSection.styl'
 
 export default class DetailViewDialog extends Component {
+  componentDidMount = () => {
+    const isOpen = Number.isInteger(this.props.caseStudyIndex)
+    document.body.classList.toggle('no-scroll', isOpen)
+  }
+
+  componentDidUpdate = () => {
+    const isOpen = Number.isInteger(this.props.caseStudyIndex)
+    document.body.classList.toggle('no-scroll', isOpen)
+  }
+
+  componentWillUnmount = () => {
+    if (!__SERVER__) {
+      document.body.classList.remove('no-scroll')
+    }
+  }
+
   render() {
     const { list = [], caseStudyIndex } = this.props
 
