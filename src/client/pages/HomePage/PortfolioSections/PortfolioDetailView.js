@@ -102,6 +102,9 @@ export default class PortfolioDetailView extends Component {
         {!!images.length && this.renderImages(images || [])}
 
         {videosAfterImages.map(this.renderOneVideo)}
+
+        <div className="next-case-section" />
+        <div className="footer-section" />
       </div>
     )
   }

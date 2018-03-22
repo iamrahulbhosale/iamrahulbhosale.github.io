@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import s from './LivePage.styl'
 
-import HeroSection from './HeroSection'
+// import HeroSection from './HeroSection'
 import PhotosSection from './PhotosSection'
 
 export default class LivePage extends Component {
@@ -40,9 +40,6 @@ export default class LivePage extends Component {
   render() {
     return (
       <div className={s.container}>
-        <div className="cd-section stuck">
-          <HeroSection className="page-section" />
-        </div>
         <div className="cd-section">
           <PhotosSection className="page-section" />
         </div>

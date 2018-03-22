@@ -10,12 +10,26 @@ import FocusSection from './FocusSection'
 import ThanksSection from './ThanksSection'
 
 export default class HomePage extends Component {
+  state = {
+    jqueryReady: false
+  }
   componentDidMount = () => {
     window.addEventListener('scroll', this.handleScroll)
+    this.loadjQuery()
   }
 
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  loadjQuery = () => {
+    import('jquery')
+      .then(mod => {
+        this.setState({ jqueryReady: true })
+        window.jQuery = window.$ = mod.default
+        console.log('jquery is ready')
+      })
+      .catch(console.error.bind(console))
   }
 
   handleScroll = () => {
@@ -32,14 +46,37 @@ export default class HomePage extends Component {
 
   updateLayout = e => {
     const sections = Array.from(document.querySelectorAll('.cd-section'))
-    sections.forEach(s => {
-      const innerHeight = s
-        .querySelector('.page-section')
-        .getBoundingClientRect().height
-      s.style.height = `${innerHeight}px`
-      s.classList.toggle('stuck', this.isInViewport(s))
-    })
+    sections.forEach(this.fixHeights)
+    sections.forEach(this.fixSectionIfInViewport)
+
+    const current = sections.filter(this.isInViewport)
+    console.log('current in viewport: ', current)
+
     this.isLayoutBusy = false
+  }
+
+  fixSectionIfInViewport = section => {
+    const inViewport = this.isInViewport(section)
+    if (!inViewport) {
+      section.classList.contains('stuck') && section.classList.remove('stuck')
+    } else {
+      !section.classList.contains('stuck') && section.classList.add('stuck')
+    }
+    return section
+  }
+
+  fixHeights = (section, index) => {
+    const innerHeight = section
+      .querySelector('.page-section')
+      .getBoundingClientRect().height
+
+    const value = `${innerHeight}px`
+
+    if (section.style.height !== value) {
+      section.style.height = `${innerHeight}px`
+    }
+
+    return section
   }
 
   isInViewport = section => {

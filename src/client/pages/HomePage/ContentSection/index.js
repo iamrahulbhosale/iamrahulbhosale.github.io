@@ -68,7 +68,7 @@ export default class ContentSection extends Component {
         </Sidebar>
         <div className="container">
           <p className="content-p">
-            Hi I ‘m Rahul Bhosale, a multidisciplinary designer from Mumbai. I
+            Hi I'm Rahul Bhosale, a multidisciplinary designer from Mumbai. I
             believe good design can make the positive impact on people’s daily
             lives. It can solve most problems. Design can unite people without
             any language or cultural barrier.
