@@ -12,7 +12,7 @@ import s from './HeroSection.styl'
 export default class HeroSection extends Component {
   componentDidMount = () => {
     setTimeout(this.animate, 400)
-    console.log('will use event: ', TRANSITION_END_EVENT)
+    // console.log('will use event: ', TRANSITION_END_EVENT)
   }
 
   animate = () => {
@@ -51,7 +51,7 @@ export default class HeroSection extends Component {
           </span>
         </div>
         <div className="profile-image" />
-        <div className="go-down-button">
+        <div className="go-down-button hide-offscreen">
           <img className="img-fluid" alt="" src="/public/img/arrow-down.gif" />
         </div>
         <Sidebar right white>

@@ -14,23 +14,24 @@ export default class HomePage extends Component {
     jqueryReady: false
   }
   componentDidMount = () => {
+    window.scrollTo(0, 0)
     window.addEventListener('scroll', this.handleScroll)
-    this.loadjQuery()
+    // this.loadjQuery()
   }
 
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  loadjQuery = () => {
-    import('jquery')
-      .then(mod => {
-        this.setState({ jqueryReady: true })
-        window.jQuery = window.$ = mod.default
-        console.log('jquery is ready')
-      })
-      .catch(console.error.bind(console))
-  }
+  // loadjQuery = () => {
+  //   import('jquery')
+  //     .then(mod => {
+  //       this.setState({ jqueryReady: true })
+  //       window.jQuery = window.$ = mod.default
+  //       console.log('jquery is ready')
+  //     })
+  //     .catch(console.error.bind(console))
+  // }
 
   handleScroll = () => {
     const dw = document.documentElement.clientWidth || window.innerWidth
@@ -86,12 +87,35 @@ export default class HomePage extends Component {
     const bounds = section.getBoundingClientRect()
     const offetTop = section.offsetTop
     const scrollY = window.scrollY
-    if (bounds.bottom <= dh && bounds.height - bounds.top >= dh) {
+
+    // Handle the first page
+    if (bounds.bottom === dh && bounds.top === 0) {
+      this.toggleOffscreen(section, true)
       return true
     }
 
+    // Handle leaving pages
+    if (bounds.top < 0 && Math.abs(bounds.top) > bounds.height) {
+      this.toggleOffscreen(section, false)
+      return false
+    }
+
+    // Handle arriving pages
+    if (bounds.bottom <= dh && bounds.height - bounds.top >= dh) {
+      this.toggleOffscreen(section, true)
+      return true
+    }
+
+    this.toggleOffscreen(section, false)
     return false
     /* eslint-enable*/
+  }
+
+  toggleOffscreen = (section, show) => {
+    const list = Array.from(section.querySelectorAll('.hide-offscreen'))
+    list.forEach(item => {
+      item.style.visibility = show ? '' : 'hidden'
+    })
   }
 
   render() {

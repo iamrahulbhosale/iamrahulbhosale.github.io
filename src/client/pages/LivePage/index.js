@@ -6,6 +6,7 @@ import PhotosSection from './PhotosSection'
 
 export default class LivePage extends Component {
   componentDidMount = () => {
+    window.scrollTo(0, 0)
     window.addEventListener('scroll', this.handleScroll)
   }
 

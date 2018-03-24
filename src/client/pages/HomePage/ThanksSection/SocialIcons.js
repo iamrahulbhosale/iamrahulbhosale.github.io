@@ -1,12 +1,9 @@
 import React from 'react'
 
-export const SocialIcons = props => (
+export const SocialIcons = ({ links }) => (
   <div className="social-icons">
     <div className="social-icon">
-      <a
-        className="social-link"
-        href="https://dribbble.com/rahulbhosale"
-        target="__blank">
+      <a className="social-link" href={links.dribbble.url} target="__blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -23,10 +20,7 @@ export const SocialIcons = props => (
       </a>
     </div>
     <div className="social-icon">
-      <a
-        className="social-link"
-        href="https://www.behance.net/rahulbhosale"
-        target="__blank">
+      <a className="social-link" href={links.behance.url} target="__blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="21"
@@ -43,10 +37,7 @@ export const SocialIcons = props => (
       </a>
     </div>
     <div className="social-icon">
-      <a
-        className="social-link"
-        href="https://www.instagram.com/rahul.design"
-        target="__blank">
+      <a className="social-link" href={links.instagram.url} target="__blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -63,10 +54,7 @@ export const SocialIcons = props => (
       </a>
     </div>
     <div className="social-icon">
-      <a
-        className="social-link"
-        href="https://medium.com/@rahul.design"
-        target="__blank">
+      <a className="social-link" href={links.medium.url} target="__blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"
@@ -83,10 +71,7 @@ export const SocialIcons = props => (
       </a>
     </div>
     <div className="social-icon">
-      <a
-        className="social-link"
-        href="https://www.linkedin.com/in/iamrahulbhosale"
-        target="__blank">
+      <a className="social-link" href={links.linkedin.url} target="__blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"

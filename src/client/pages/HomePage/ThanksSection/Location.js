@@ -5,7 +5,7 @@ import Logo from 'components/ui/Logo'
 export const Location = props => (
   <div className="location-container">
     <div className="logo-wrapper">
-      <Logo white />
+      <Logo white className='black-square'/>
     </div>
     <div className="location-details">
       <div className="location-label">Let's meet, i'm currently in</div>

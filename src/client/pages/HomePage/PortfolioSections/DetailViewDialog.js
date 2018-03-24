@@ -8,6 +8,7 @@ export default class DetailViewDialog extends Component {
   componentDidMount = () => {
     const isOpen = Number.isInteger(this.props.caseStudyIndex)
     document.body.classList.toggle('no-scroll', isOpen)
+    if (isOpen) window.scrollTo(0, 0)
   }
 
   componentDidUpdate = () => {
@@ -22,7 +23,7 @@ export default class DetailViewDialog extends Component {
   }
 
   render() {
-    const { list = [], caseStudyIndex } = this.props
+    const { list = [], caseStudyIndex, nextCaseStudyName } = this.props
 
     const isValidCaseStudy = Number.isInteger(caseStudyIndex)
 
@@ -41,7 +42,11 @@ export default class DetailViewDialog extends Component {
         <div className="back-button" onClick={this.props.onRequestClose}>
           <div className="back-button-inner">←</div>
         </div>
-        <div className="detail-view-inner">
+        <div
+          className={classnames(
+            'detail-view-inner',
+            currentCaseStudy.className
+          )}>
           {isValidCaseStudy && (
             <PortfolioDetailView
               onRequestClose={this.props.onRequestClose}
@@ -50,6 +55,8 @@ export default class DetailViewDialog extends Component {
               objective={currentCaseStudy.detailView.objective}
               solution={currentCaseStudy.detailView.solution}
               links={currentCaseStudy.detailView.links}
+              nextCaseStudyName={nextCaseStudyName}
+              onNextCaseStudyClick={this.props.onNextCaseStudyClick}
               testimonials={currentCaseStudy.detailView.testimonials}
               heroImage={currentCaseStudy.detailView.heroImage}
               images={currentCaseStudy.detailView.images}

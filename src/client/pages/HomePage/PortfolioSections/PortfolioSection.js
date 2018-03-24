@@ -57,7 +57,7 @@ export default class PortfolioSection extends Component {
     const dw = document.documentElement.clientWidth || window.innerWidth
     const dh = document.documentElement.clientHeight || window.innerHeight
     const bounds = this.container.getBoundingClientRect()
-    const factor = 1.24
+    const factor = 1.1
 
     if (dw < 768) {
       return

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-
+import { connect } from 'react-redux'
 import { SocialIcons } from './SocialIcons'
 import { Location } from './Location'
 import s from './ThanksSection.styl'
 
-export default class ThanksSection extends Component {
+class ThanksSection extends Component {
   componentDidMount = () => {
     setTimeout(this.animate, 400)
   }
@@ -34,7 +34,7 @@ export default class ThanksSection extends Component {
             <div className="thanks-sub-text">
               I look forward to making great things with you in 2018
             </div>
-            <SocialIcons />
+            <SocialIcons links={this.props.links} />
             <div className="flex-1" />
             <Location />
           </div>
@@ -43,3 +43,9 @@ export default class ThanksSection extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  links: state.Social.links
+})
+
+export default connect(mapStateToProps)(ThanksSection)

@@ -22,11 +22,21 @@ export default class PortfolioSections extends Component {
     return description.map((str, i) => <div key={i}>{str}</div>)
   }
 
-  getNextCaseStudyLink = index => {
+  getNextCaseStudyName = () => {
+    const index = this.state.caseStudyIndex
     if (LIST.length === index + 1) {
       return null
     }
-    return index + 1
+    return LIST[index + 1].title
+  }
+
+  onNextCaseStudyClick = () => {
+    const index = this.state.caseStudyIndex
+    if (LIST.length === index + 1) {
+      return
+    }
+
+    this.setState({ caseStudyIndex: index + 1 })
   }
 
   render() {
@@ -36,6 +46,8 @@ export default class PortfolioSections extends Component {
       <Fragment>
         <DetailViewDialog
           caseStudyIndex={this.state.caseStudyIndex}
+          nextCaseStudyName={this.getNextCaseStudyName()}
+          onNextCaseStudyClick={this.onNextCaseStudyClick}
           list={LIST}
           onRequestClose={this.closeCaseStudy}
         />

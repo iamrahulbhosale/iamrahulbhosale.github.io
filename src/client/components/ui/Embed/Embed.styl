@@ -10,10 +10,13 @@
   &.ui-embed-16x10 
     ratio-box(16/10)
 
-  &.ui-embed-preset-1
+  &.ui-embed-preset-1, &.ui-embed-preset-2
     ratio-box(16/9)
-    &:before
-      padding-top 59.356%
+  &.ui-embed-preset-1:before
+    padding-top 62.512%
+  &.ui-embed-preset-2:before
+    padding-top 66.024%
+
 
   .ui-embed-item 
     position absolute

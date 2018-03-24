@@ -31,12 +31,12 @@ export default [
         {
           link:
             'https://player.vimeo.com/video/161397983?title=0&byline=0&loop=1&background=1&portrait=0',
-          ratio: '16x9'
+          ratio: 'preset-1'
         },
         {
           link:
             'https://player.vimeo.com/video/161817947?title=0&byline=0&loop=1&background=1&portrait=0',
-          ratio: 'preset-1'
+          ratio: 'preset-2'
         }
       ],
       videosAfterImages: [
