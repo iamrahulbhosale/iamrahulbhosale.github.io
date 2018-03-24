@@ -49,8 +49,8 @@ export default class HomePage extends Component {
     sections.forEach(this.fixHeights)
     sections.forEach(this.fixSectionIfInViewport)
 
-    const current = sections.filter(this.isInViewport)
-    console.log('current in viewport: ', current)
+    // const current = sections.filter(this.isInViewport)
+    // console.log('current in viewport: ', current)
 
     this.isLayoutBusy = false
   }

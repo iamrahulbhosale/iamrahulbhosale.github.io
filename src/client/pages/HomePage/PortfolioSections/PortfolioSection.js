@@ -89,8 +89,7 @@ export default class PortfolioSection extends Component {
       white,
       title,
       description,
-      webLink,
-      mobileLink,
+      workedOn,
       hasCaseStudy,
       image
     } = this.props
@@ -108,12 +107,7 @@ export default class PortfolioSection extends Component {
             <div className="portfolio-title">{title}</div>
             <div className="portfolio-description">{description}</div>
             <div className="demo-links">
-              <a href={webLink} className="demo-link">
-                Web
-              </a>
-              <a href={mobileLink} className="demo-link">
-                Mobile
-              </a>
+              <div className="worked-on">{workedOn}</div>
             </div>
             <Button
               className={classnames('case-study-button', {

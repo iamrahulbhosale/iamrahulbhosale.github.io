@@ -5,11 +5,13 @@ import s from './Embed.styl'
 const getEmbedClassName = (providedClassName, ratio = '640x400') =>
   classnames(s.container, 'ui-embed', providedClassName, `ui-embed-${ratio}`)
 
-const Embed = props => (
-  <div className={getEmbedClassName(props.className, props.ratio)}>
-    {props.children}
-  </div>
-)
+const Embed = props => {
+  return (
+    <div className={getEmbedClassName(props.className, props.ratio)}>
+      {props.children}
+    </div>
+  )
+}
 
 export { default as VimeoEmbed } from './Vimeo'
 

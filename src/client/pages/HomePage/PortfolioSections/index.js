@@ -45,8 +45,7 @@ export default class PortfolioSections extends Component {
             <PortfolioSection
               title={portfolio.title}
               description={this.getDescription(portfolio.description)}
-              webLink={portfolio.webLink || '#'}
-              mobileLink={portfolio.mobileLink || '#'}
+              workedOn={portfolio.workedOn}
               onCaseStudyClick={e => this.openCaseStudy(index)}
               hasCaseStudy={!!Object.keys(portfolio.detailView).length}
               image={portfolio.image}

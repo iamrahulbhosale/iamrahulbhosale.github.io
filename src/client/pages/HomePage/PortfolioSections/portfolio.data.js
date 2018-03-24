@@ -6,6 +6,7 @@ export default [
       'Collaboration with Jekin Gala',
       'Herman Miller redesign concept'
     ],
+    workedOn: 'Web . Mobile',
     image: '/public/img/portfolio/herman-miller.jpg',
     detailView: {
       description:
@@ -27,21 +28,53 @@ export default [
       heroImage: '/public/img/detail-view/herman-miller-hero.jpg',
       images: ['/public/img/detail-view/herman-miller-image-1.jpg'],
       videosBeforeImages: [
-        'https://player.vimeo.com/video/161397983?title=0&byline=0&loop=1&background=1&portrait=0',
-        'https://player.vimeo.com/video/161817947?title=0&byline=0&loop=1&background=1&portrait=0'
+        {
+          link:
+            'https://player.vimeo.com/video/161397983?title=0&byline=0&loop=1&background=1&portrait=0',
+          ratio: '16x9'
+        },
+        {
+          link:
+            'https://player.vimeo.com/video/161817947?title=0&byline=0&loop=1&background=1&portrait=0',
+          ratio: 'preset-1'
+        }
       ],
       videosAfterImages: [
-        'https://player.vimeo.com/video/161658168?title=0&byline=0&loop=1&background=1&portrait=0',
-        'https://player.vimeo.com/video/161723095?title=0&byline=0&loop=1&background=1&portrait=0',
-        'https://player.vimeo.com/video/161664417?title=0&byline=0&loop=1&background=1&portrait=0'
+        {
+          link:
+            'https://player.vimeo.com/video/161658168?title=0&byline=0&loop=1&background=1&portrait=0',
+          ratio: '16x9'
+        },
+        {
+          link:
+            'https://player.vimeo.com/video/161723095?title=0&byline=0&loop=1&background=1&portrait=0',
+          ratio: '16x9'
+        },
+        {
+          link:
+            'https://player.vimeo.com/video/161664417?title=0&byline=0&loop=1&background=1&portrait=0',
+          ratio: '16x10'
+        }
       ]
     }
+  },
+  {
+    title: 'HOUSING',
+    className: 'housing-portfolio',
+    description: [
+      'Lead Interaction Designer',
+      'Crafted insightful driven delightfulness.'
+    ],
+    image: '/public/img/portfolio/housing.jpg',
+    workedOn: '// 2015 - 2018',
+    detailView: {}
   },
   {
     title: 'COMPASS',
     className: 'compass-portfolio',
     description: ['Gateway guide for travellers', 'and explorers'],
     image: '/public/img/portfolio/compass.jpg',
+    workedOn: 'Web . Mobile',
     detailView: {}
   },
 
@@ -50,6 +83,7 @@ export default [
     className: 'indiez-portfolio',
     description: ['Crafting website for', 'the future of work at indiez.io'],
     image: '/public/img/portfolio/indiez.jpg',
+    workedOn: 'Web . Mobile',
     detailView: {}
   },
 
@@ -58,6 +92,7 @@ export default [
     className: 'chefstalk-portfolio',
     description: ['An easy job portal for chefs in', 'culinary world'],
     image: '/public/img/portfolio/chefstalk.jpg',
+    workedOn: 'Web . Mobile',
     detailView: {}
   }
 ]

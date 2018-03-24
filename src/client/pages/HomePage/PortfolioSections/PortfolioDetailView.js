@@ -43,11 +43,11 @@ export default class PortfolioDetailView extends Component {
     ))
   }
 
-  renderOneVideo = (url, index) => {
+  renderOneVideo = (video, index) => {
     return (
       <div className="project-video-container" key={index}>
-        <Embed key={index}>
-          <VimeoEmbed title="project-video" url={url} />
+        <Embed key={index} ratio={video.ratio || '16x9'}>
+          <VimeoEmbed title="project-video" url={video.link} />
         </Embed>
       </div>
     )
