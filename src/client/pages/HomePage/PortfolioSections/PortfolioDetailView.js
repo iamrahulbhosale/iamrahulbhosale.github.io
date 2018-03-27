@@ -62,7 +62,11 @@ class PortfolioDetailView extends Component {
     return (
       <div className="footer-links">
         {names.map((name, index) => (
-          <a className="footer-link" href={links[name].url} key={index}>
+          <a
+            className="footer-link"
+            target="_blank"
+            href={links[name].url}
+            key={index}>
             {links[name].label}
           </a>
         ))}
