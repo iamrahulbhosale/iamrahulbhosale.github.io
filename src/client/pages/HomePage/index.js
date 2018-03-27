@@ -140,9 +140,13 @@ export default class HomePage extends Component {
           <ThanksSection className="page-section" />
         </div>
 
-        <div className="contact-button">
+        <a
+          className="contact-button"
+          href="mailto:rahulgraphy@gmail.com?Subject=Hello%20Rahul"
+          rel="noopener noreferrer"
+          target="_blank">
           <img className="img-fluid" alt="" src="/public/img/hand-image.png" />
-        </div>
+        </a>
       </div>
     )
   }
