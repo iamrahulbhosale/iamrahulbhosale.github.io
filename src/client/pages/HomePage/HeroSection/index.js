@@ -17,7 +17,7 @@ export default class HeroSection extends Component {
 
   animate = () => {
     const texts = Array.from(this.container.querySelectorAll('.hero-text'))
-    const lastText = texts[texts.length - 2]
+    const lastText = texts[0]
 
     TRANSITION_END_EVENT.split(' ').forEach(evt => {
       lastText.addEventListener(evt, this.onTextAnimationComplete)
