@@ -5,10 +5,13 @@
   
   &.page-section.thanks-section
     padding-bottom 50px
+    padding-top 50px
   .thanks-content, .thanks-inner
     flex 1
     display flex 
     flex-direction column
+    justify-content center
+    position relative
   
 
   .thanks-title 
@@ -51,7 +54,7 @@
     display inline-block
     opacity 0.4
     padding: 2px;
-    transition opacity $time-1x ease , transform $time-1x ease
+    transition opacity 0.3s ease , transform 0.3s ease
     transform scale(1)
     transform-origin center center 
     path[fill='#FFF']
@@ -96,6 +99,9 @@
 :local(.container)
   .location-container
     display flex
+    position absolute
+    left 40px
+    bottom 0
   
   .location-details
     margin-left 30px

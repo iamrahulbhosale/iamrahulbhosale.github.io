@@ -35,7 +35,6 @@ class ThanksSection extends Component {
               I look forward to making great things with you in 2018
             </div>
             <SocialIcons links={this.props.links} />
-            <div className="flex-1" />
             <Location />
           </div>
         </div>
