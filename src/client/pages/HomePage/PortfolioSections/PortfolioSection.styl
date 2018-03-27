@@ -255,7 +255,8 @@ $detail-view-pad-y = 100px
       width 100%
 
   .project-video-container,
-  .project-image
+  .project-image,
+  .sp-1fr
     background-color #353535
 
   .margin-x-box
@@ -277,7 +278,10 @@ $detail-view-pad-y = 100px
   .info-link
     display flex
     line-height 80px
-    color #000
+    // color #000
+  .sp-1fr
+    height 50px
+    width 100%
 
   .footer-section, .next-case-section
     padding 50px 0
@@ -288,8 +292,13 @@ $detail-view-pad-y = 100px
   .footer-links
     font-size 18px
     line-height 23px
+    letter-spacing -0.2px
   .footer-link
     margin-left 50px
+    color #424A5C
+    transition color $time-1x ease
+    &:hover
+      color #101217
 
   .next-case-section
     height 300px
@@ -308,7 +317,7 @@ $detail-view-pad-y = 100px
       bottom 0
       z-index -1
       background-size cover
-      background-image url('/public/img/detail-view/next-study-bg.jpg')
+      // background-image url('/public/img/detail-view/next-study-bg.jpg')
       background-position center center
       background-repeat no-repeat
       opacity 0.1
@@ -330,24 +339,24 @@ $detail-view-pad-y = 100px
     cursor pointer
     overflow hidden
     will-change background-color, color
-    // transition background-color 0.12s, color 0.12s
-    transition-delay 0.15s
+    transition color 0.12s
+    // transition-delay 0.15s
     .btn-overlay
       position absolute
       top 0
       left 0
       right 0
       bottom 0
-      z-index 1
+      z-index -1
       background-color #666
       will-change transform 
       transform translate3d(-100%, 0px, 0px)
-      transition transform 0.5s 
+      transition transform 0.8s cubic-bezier(0.25, 0.1, 0, 0.99)
     &:hover
-      background-color #fff
+      // background-color #fff
       color #000
       .btn-overlay
-        transform translate3d(100%, 0px, 0px)
+        transform translate3d(0%, 0px, 0px)
     
 
   .info-icon

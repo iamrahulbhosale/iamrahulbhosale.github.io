@@ -29,6 +29,13 @@ export default class PortfolioSections extends Component {
     }
     return LIST[index + 1].title
   }
+  getNextCaseStudyImage = () => {
+    const index = this.state.caseStudyIndex
+    if (LIST.length === index + 1) {
+      return null
+    }
+    return LIST[index + 1].image
+  }
 
   onNextCaseStudyClick = () => {
     const index = this.state.caseStudyIndex
@@ -47,6 +54,7 @@ export default class PortfolioSections extends Component {
         <DetailViewDialog
           caseStudyIndex={this.state.caseStudyIndex}
           nextCaseStudyName={this.getNextCaseStudyName()}
+          nextCaseStudyImage={this.getNextCaseStudyImage()}
           onNextCaseStudyClick={this.onNextCaseStudyClick}
           list={LIST}
           onRequestClose={this.closeCaseStudy}

@@ -23,7 +23,12 @@ export default class DetailViewDialog extends Component {
   }
 
   render() {
-    const { list = [], caseStudyIndex, nextCaseStudyName } = this.props
+    const {
+      list = [],
+      caseStudyIndex,
+      nextCaseStudyName,
+      nextCaseStudyImage
+    } = this.props
 
     const isValidCaseStudy = Number.isInteger(caseStudyIndex)
 
@@ -49,6 +54,7 @@ export default class DetailViewDialog extends Component {
           )}>
           {isValidCaseStudy && (
             <PortfolioDetailView
+              image={currentCaseStudy.image}
               onRequestClose={this.props.onRequestClose}
               title={currentCaseStudy.title}
               description={currentCaseStudy.detailView.description}
@@ -56,6 +62,7 @@ export default class DetailViewDialog extends Component {
               solution={currentCaseStudy.detailView.solution}
               links={currentCaseStudy.detailView.links}
               nextCaseStudyName={nextCaseStudyName}
+              nextCaseStudyImage={nextCaseStudyImage}
               onNextCaseStudyClick={this.props.onNextCaseStudyClick}
               testimonials={currentCaseStudy.detailView.testimonials}
               heroImage={currentCaseStudy.detailView.heroImage}

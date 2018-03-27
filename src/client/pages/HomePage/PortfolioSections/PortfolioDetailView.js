@@ -10,7 +10,7 @@ class PortfolioDetailView extends Component {
   renderLinks = links => {
     return (
       <div className="information-section margin-x-box">
-        <div className="label" />
+        <div className="label"> Featured </div>
         <div className="value">
           {links.map((link, index) => (
             <a className="info-link" href={link.href} key={index}>
@@ -75,6 +75,7 @@ class PortfolioDetailView extends Component {
       className,
       isOpen,
       title,
+      nextCaseStudyImage,
       description,
       heroImage,
       objective,
@@ -114,18 +115,21 @@ class PortfolioDetailView extends Component {
         {!!links.length && this.renderLinks(links || [])}
 
         {!!testimonials.length && this.renderTestimonials(testimonials || [])}
-
+        <div className="sp-1fr" />
         {videosBeforeImages.map(this.renderOneVideo)}
 
         {!!images.length && this.renderImages(images || [])}
 
         {videosAfterImages.map(this.renderOneVideo)}
-
+        <div className="sp-1fr" />
         {!!nextCaseStudyName && (
           <div className="next-case-section">
             <div className="margin-x-box">
               <div className="next-case-label">Next Case Study</div>
-              <div className="next-study-bg" />
+              <div
+                className="next-study-bg"
+                style={{ backgroundImage: `url(${nextCaseStudyImage})` }}
+              />
               <div
                 className="next-case-button"
                 onClick={this.props.onNextCaseStudyClick}>

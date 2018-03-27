@@ -17,12 +17,12 @@ export default [
         'This direction could help evolve their eCommerce experience in an effort to drive better conversions.',
       links: [
         {
-          icon: '🎖',
+          icon: '',
           label: 'Interaction Gallery Feature - Behance',
           href: '#'
         },
-        { icon: '🎖', label: 'Student Show Feature - Behance', href: '#' },
-        { icon: '📢', label: 'Abduzeedo Feature - Abduzeedo', href: '#' }
+        { icon: '', label: 'Student Show Feature - Behance', href: '#' },
+        { icon: '', label: 'Abduzeedo Feature - Abduzeedo', href: '#' }
       ],
       testimonials: [],
       heroImage: '/public/img/detail-view/herman-miller-hero.jpg',
