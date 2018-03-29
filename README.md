@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Requirements
 
 Node.js > 6
@@ -38,6 +37,3 @@ yarn server
 ```sh
 yarn generate-pages
 ```
-=======
-# Portfolio
->>>>>>> f5a4812e79aeb1358e2565d444f2fcb6b239c048
