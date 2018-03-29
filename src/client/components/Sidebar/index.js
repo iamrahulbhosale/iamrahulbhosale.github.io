@@ -67,9 +67,9 @@ export default class Sidebar extends Component {
     return (
       <div className={cx}>
         {hasLogo && (
-          <Link to="/">
+          <a data-scroll href="#home">
             <Logo className="sidebar-logo" white={logoIsWhite} />
-          </Link>
+          </a>
         )}
         {children}
       </div>

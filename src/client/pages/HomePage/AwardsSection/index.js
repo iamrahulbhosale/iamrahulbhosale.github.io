@@ -49,7 +49,7 @@ export default class AwardsSection extends Component {
                   />
                 </g>
               </svg>
-              <div className="heart-gif hg1 hide-offscreen" />
+              <div className="heart-gif hg1" />
             </div>
             <div className="award-text">ABDUZEEDO DESIGN</div>
           </div>

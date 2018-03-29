@@ -20,14 +20,18 @@
     .heart-gif
       position absolute
       right 10px
+      display none
       top -20px
       z-index -1
       will-change transform
       transform translate3d(0px, 20px, 0px)
       transition transform $time-2x ease
+    &:not(:hover) .heart-gif
+      background-image none
     &:hover
       opacity 1
       .heart-gif
+        display block
         opacity 1
         transform translate3d(0px, 0px, 0px)
       
