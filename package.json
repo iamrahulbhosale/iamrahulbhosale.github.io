@@ -29,7 +29,7 @@
     "start": "npm run server",
     "watch-client": "webpack-dev-server --config tools/webpack.config.client.js",
     "watch-server": "webpack --watch --config tools/webpack.config.server.js",
-    "watch": "npm-run-all clean build-client --parallel copy-watch watch-client watch-server"
+    "watch": "NODE_ENV=development npm-run-all clean build-client --parallel copy-watch watch-client watch-server"
   },
   "private": true,
   "dependencies": {
