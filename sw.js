@@ -97,16 +97,16 @@ sw.precache([
     "revision": "3e8fcb198959738a51a1ea765b53603f"
   },
   {
-    "url": "/public/LivePage.2006f8fd.chunk.js",
-    "revision": "81c86ea056236de3f5081de244beff25"
+    "url": "/public/LivePage.2cc68cd4.chunk.js",
+    "revision": "90c98c78254c56565960f94a830584b0"
+  },
+  {
+    "url": "/public/main.1ed6fc08.bundle.js",
+    "revision": "9e1bd2b508543067016c2c358d8cb90e"
   },
   {
     "url": "/public/main.ada51146.bundle.css",
     "revision": "c618eec64f3afae17e45d746a4c23157"
-  },
-  {
-    "url": "/public/main.d0361838.bundle.js",
-    "revision": "0aa27160421072c7e5ba272cead73b88"
   },
   {
     "url": "/public/vendors.76626d26.chunk.js",
