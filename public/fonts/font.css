@@ -1,0 +1,26 @@
+@font-face {
+    font-family: FuturaPT;
+    font-weight: 300;
+    src: url(./FuturaPTLight.otf);
+}
+@font-face {
+    font-family: FuturaPT;
+    font-weight: 400;
+    src: url(./FuturaPTBook.otf);
+}
+@font-face {
+    font-family: FuturaPT;
+    font-weight: 500;
+    src: url(./FuturaPTMedium.otf);
+    /* [TOOD: this font is missing ] */
+}
+@font-face {
+    font-family: FuturaPT;
+    font-weight: 700;
+    src: url(./FuturaPTBold.otf);
+}
+@font-face {
+    font-family: FuturaPT;
+    font-weight: 800;
+    src: url(./FuturaPTExtraBold.otf);
+}
