@@ -101,8 +101,8 @@ sw.precache([
     "revision": "798cfb954072baf9963f20a0778100e9"
   },
   {
-    "url": "/public/main.a21ffdbf.bundle.css",
-    "revision": "b76d38e7233737d5465e6f441d6331e5"
+    "url": "/public/main.061f6ab5.bundle.css",
+    "revision": "38f87d7fe73f0334cf80dd7fbb53efd0"
   },
   {
     "url": "/public/main.a46170ef.bundle.js",
